@@ -21,7 +21,7 @@ let menu_data = [
     ice:true, hot:true, topping_number:3, is_waiting:false, is_output_kitchen:true},
 ];
 
-let category_data = ['시즌메뉴', '베스트 콤비네이션'];
+let category_data = ['시즌메뉴', '베스트 콤비네이션'];g
 
 const category_selectEl = document.getElementById('category_select');
 const menu_selectEl = document.getElementById('menu_select');
