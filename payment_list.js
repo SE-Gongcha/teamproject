@@ -141,7 +141,7 @@ payment_cancel_btn.addEventListener('click', ()=>{
     }
 });
 
-cancel_ok_btn.addEventListener('click', ()=>{
+cancel_ok_btn.addEventListener('click', ()=> {
     if(checkRemove()){
         const remove_receipt_number =input_receipt_numberEl.innerText;
 
