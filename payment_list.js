@@ -21,8 +21,9 @@ const input_discount_priceEl = document.getElementById('input_discount_price');
 const input_real_priceEl = document.getElementById('input_real_price');
 
 const payment_cancel_btn = document.getElementById('payment_cancel');
-const canel_ok_btn = document.getElementById('ok_btn');
+const cancel_ok_btn = document.getElementById('ok_btn');
 
+const modal_body = document.querySelector('.modal-body');
 updatePaymentDom(payment_data); 
 
 function changeDate(payment_data){
@@ -110,6 +111,14 @@ function removeDetailPayment(){
     input_real_priceEl.innerHTML=``;
 
 };
+
+function checkRemove(){
+    const remove_receipt_number =input_receipt_numberEl.innerText;
+    if(remove_receipt_number.trim()===''){
+        return false;
+    }
+    return true;
+}
 $(document.body).delegate("#example-table-1 tr", 'click', function() {
     var tdArr = new Array();	// 배열 선언
     
@@ -124,30 +133,24 @@ $(document.body).delegate("#example-table-1 tr", 'click', function() {
     showDetailPayment(payment_data, tdArr[1]); //영수증번호로 detail값 구하기
 });
 
-
 payment_cancel_btn.addEventListener('click', ()=>{
-    const remove_receipt_number =input_receipt_numberEl.innerText;
-
-    payment_data.forEach((item,index)=> {
-        if(item.receipt_number===remove_receipt_number){
-            payment_data.splice(index,1);
-        }
-    });
-    updatePaymentDom();
-    removeDetailPayment();
+    if(checkRemove()){
+        modal_body.innerHTML = `신용카드를 입력해주세요.`;
+    }else{
+        modal_body.innerHTML = '결제취소할 품목을 선택해주세요.';
+    }
 });
 
+cancel_ok_btn.addEventListener('click', ()=>{
+    if(checkRemove()){
+        const remove_receipt_number =input_receipt_numberEl.innerText;
 
-// $("#example-table-1 tr").click(function(){ 	
-//     var tdArr = new Array();	// 배열 선언
-    
-//     // 현재 클릭된 Row(<tr>)
-//     var tr = $(this);
-//     var td = tr.children();
-    
-//     td.each(function(i){
-//         tdArr.push(td.eq(i).text());
-//     });
-//     console.log("영수증번호 담긴 값 : "+tdArr[1]);
-//     showDetailPayment(payment_data, tdArr[1]); //영수증번호로 detail값 구하기
-// });
+        payment_data.forEach((item,index)=> {
+            if(item.receipt_number===remove_receipt_number){
+                payment_data.splice(index,1);
+            }
+        });
+        updatePaymentDom();
+        removeDetailPayment();
+    };
+});

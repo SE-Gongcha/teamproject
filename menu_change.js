@@ -93,15 +93,6 @@ function findSelectedMenuIndex(){
     return selected_menu_index;
 }
 
-// function getCategories(menu_data){ //menu_data에 있는 카테고리 추출
-//     const categories = [];
-//     menu_data.forEach(item=>{
-//         if(!categories.includes(item.category)){
-//             categories.push(item.category);
-//         }
-//     })
-//     return categories;
-// };
 
 function findMenuDetail(menu_name, menu_data){
     let menu_index = null;
@@ -132,13 +123,6 @@ function updateMenus(category,menu_data){ // 메뉴 업데이트
 };
 
 function updateMenuDetail(menu, menu_data){
-    // const categories = getCategories(menu_data);//menu_data에서 중복하지 않는 카테고리 배열 추출하기
-    // categories.forEach(category=>{
-    //     const element = document.createElement('option');
-    //     element.innerHTML = `${category}`;
-    //     element.value= `${category}`;
-    //     input_categoryEl.appendChild(element);
-    // }); 
 
     const menu_detail = findMenuDetail(menu, menu_data); // menu_data에서 해당 메뉴 디테일 뽑기
     console.log(menu_detail);
@@ -188,16 +172,13 @@ function selectMenu(){ // 메뉴 누르면 상세사항 업데이트
     const selected_menu = menu_selectEl.options[menu_selectEl.selectedIndex].value;
 
     console.log(selected_menu);
-    
     updateMenuDetail(selected_menu, menu_data);
-    
-    
  
  
 };
 
 
-function isPossibleMenu(is_success, method){ //메뉴 등록 가능여부에 따른 모달창 
+function isPossibleMenu(is_success, method){ //메뉴 등록,수정,삭제 가능여부에 따른 모달창 
     if(is_success){
         if(method==="add"){
             modal_title[0].innerText = "메뉴등록안내" ;
