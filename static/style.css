@@ -1,0 +1,171 @@
+:root{
+    --modal-duration :1s;
+    --primary-color:  #c30e2e;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin-left:200px;
+}
+
+.nav_left{
+    border-right: 4px solid var(--primary-color);
+    color:black;
+    position: fixed;
+    top:0;
+    left:0;
+    width:201px;
+    height:100vh;
+    z-index:100;
+    font-size:15px;
+    text-align:center;
+}
+.nav-left .logo{
+    text-align: center;
+}
+
+.logo img{
+    height: 100px;
+    width:100%;
+}
+
+.nav_left ul {
+    padding:0;
+    list-style-type: none;
+    margin:0px 20px 0px 20px;
+}
+
+.nav_left ul li{
+    border-bottom : 2px solid rgba(200,200,200,0.5);
+    padding:20px;
+}
+
+.nav_left ul li:first-of-type{
+    font-size:25px;
+    border-top : 5px solid var(--primary-color);
+    border-bottom :  5px solid var(--primary-color);
+}
+a:link {color:black;text-decoration: none;}
+a:visited {color: black; text-decoration: none;}
+a:hover { color: #999999; text-decoration: underline;}
+
+
+.nav_left ul li a{
+    text-decoration: none;
+}
+
+.nav_left ul li a:hover{
+    text-decoration: underline;
+}
+
+.nav_top{
+    height:100px;
+    background:var(--primary-color);
+    padding-top: 50px;
+    padding-right:10px;
+    font-size:25px;
+}
+.nav_top a:link{
+    color:#fff;
+}
+.nav_top a:visited{
+    color:#fff;
+}
+.nav_top a:hover{
+    color:rgba(200,200,200,0.9);
+    text-decoration: underline;
+}
+
+.logout{
+    position: absolute;
+    top:10px;
+    right:10px;
+    font-size:12px;
+    padding:3px 5px;
+}
+
+.container{
+    margin: 30px;
+    width:90%;
+}
+
+h2{
+    width:90%;
+    padding:20px;
+    border-bottom:1px solid rgba(200,200,200,0.9);
+    margin:0px 20px 20px 20px;
+}
+
+
+.container .category_menu{
+    margin:20px;
+}
+.container .category_menu{
+    position: relative;
+}
+.container .category_buttons{
+    position: absolute;
+    top:-15px;
+    right:0;
+    margin-top:0px;
+
+}
+.container .menu_discription{
+    margin:20px;
+}
+.buttons{
+    margin-top:30px;
+}
+.buttons button{
+    color:#fff;
+    background-color: var(--primary-color);
+    font-size:14px;
+    padding:4px 8px;
+}
+
+.payment_list_discription{
+    margin:10px 0px;
+    padding:20px;
+    border-top:2px solid rgba(200,200,200,0.9);
+    border-bottom:2px solid rgba(200,200,200,0.9);
+}
+.payment_buttons{
+    margin-top:0px;
+}
+table thead{
+    font-size:10px;
+    text-align: center;
+}
+
+table tbody{
+    font-size:10px;
+}
+
+.modal-content{
+    border: 2px solid var(--primary-color);
+}
+.modal-body{
+    margin:20px 10px;
+}
+.modal-footer button{
+    background-color: var(--primary-color);
+    color:#Fff;
+}
+
+/* .hide{
+    opacity: 0;
+} */
+
+.menu_discription_form, .topping_discription_form{
+    border-radius: 10px;
+    padding:20px 20px;
+    background-color: #f5f5ed;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+#input_waiting, #input_kitchen, #input_ice, #input_hot, #input_topping_kitchen, #input_topping_waiting{
+    margin-left:5px;
+}

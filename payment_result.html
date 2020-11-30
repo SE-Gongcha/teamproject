@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>공차_kiosk_administrator_payment_result</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="flexbox.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css">
+    </head>
+    <body>
+
+        <nav class="nav_left">
+            <div class="logo">
+                <img src="img/공차.png" alt="logo">
+            </div>
+            <ul>
+                <li><a href="payment_list.html">매출관리</a></li>
+                <li><a href="payment_list.html">결제내역</a></li>
+                <li><a href="payment_result.html">매출액확인</a></li>
+            </ul>
+        </nav>
+
+        <nav class="nav border d-flex nav_top">
+            <a class="nav-link " href="menu_list.html">메뉴관리</a>
+            <a class="nav-link active" href="payment_list.html">매출관리</a>
+        </nav>
+        <button type="button" class="btn btn-light logout"><a href="login.html">로그아웃</a></button>
+        <h2>매출액 확인</h2>
+
+        <div class="container d-flex">
+            <!--조회날짜별 매출내역-->
+            <div class="col-6">
+                <h6>📅조회 시작일📅</h6>
+                <input type="text" id="datepicker">
+                <h6 style="margin-top:5px">📅조회 종료일📅</h6>
+                <input type="text" id="datepicker2">
+                <div style="width:100%; height:400px; overflow:auto; margin-top:10px;">
+                    <table class="table table-hover">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">주문번호</th>
+                            <th scope="col">영수증번호</th>
+                            <th scope="col">주문합계</th>
+                            <th scope="col">할인금액</th>
+                            <th scope="col">받은금액</th>
+                        </tr>
+                        </thead>
+                        <tbody  style="text-align: center;" id="payment_result_list">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-6">
+                <table class="table table-hover" style="margin-top:130px; border:3px solid black">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">총 주문수</th>
+                            <th scope="col">총매출</th>
+                            <th scope="col">총 할인금액</th>
+                            <th scope="col">총 받은금액</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align: center;" id="payment_result_all">
+                
+                    </tbody>
+                </table>
+            </div>
+        </div>    
+        <script>
+            $("#datepicker")
+            .datepicker({
+                onSelect: function(dateText) {
+                    console.log("Selected date: " + dateText + "; input's current value: " + this.value);
+                    //$(this).change();
+                    updatePaymentResultDom();
+                }
+            }).on("change", function() {
+                console.log("Got change event from field");
+            });
+            $('#datepicker').datepicker('setDate', 'today'); 
+            
+            $("#datepicker2")
+            .datepicker({
+                onSelect: function(dateText) {
+                    console.log("Selected date: " + dateText + "; input's current value: " + this.value);
+                    //$(this).change();
+                    updatePaymentResultDom();
+                }
+            }).on("change", function() {
+                console.log("Got change event from field");
+            });
+            $('#datepicker2').datepicker('setDate', 'today');
+          </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="payment_result.js"></script>
+    </body>
+    </html>

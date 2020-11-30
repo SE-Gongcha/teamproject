@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+<input type="text" id="input_test"></input>
+<button id="test" onclick = "add()">button</button>
+
+<script>
+    function add(){
+        test = $("#input_test").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "{{url_for('test')}}",
+            data: {test_give : test},
+            success:function(response){
+                if (response["result"] == "success") {
+                console.log("성공")}
+            }
+        })
+
+    }
+</script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{
+  url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+</body>
+</html>

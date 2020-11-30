@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>공차_kiosk_administrator_topping_change</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="flexbox.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <nav class="nav_left">
+            <div class="logo">
+                <img src="img/공차.png" alt="logo">
+            </div>
+            <ul>
+                <li><a href="menu_list.html">메뉴관리</a></li>
+                <li><a href="menu_list.html">메뉴현황</a></li>
+                <li><a href="menu_change.html">메뉴등록/수정</a></li>
+                <li><a href="topping_change.html">토핑등록/수정</a></li>
+            </ul>
+        </nav>
+
+        <nav class="nav border d-flex nav_top">
+            <a class="nav-link active" href="menu_list.html">메뉴관리</a>
+            <a class="nav-link" href="payment_list.html">매출관리</a>
+        </nav>
+        <button type="button" class="btn btn-light logout"><a href="login.html">로그아웃</a></button>
+
+        <h2>메뉴 현황</h2>
+        <!--본문-->
+        <div class="container d-flex">
+            <!--토핑 리스트-->
+            <div class="topping_list col-6">
+                <h6>토핑 현황</h6>
+                    <select class="custom-select" id="topping_select" size="10">
+                    </select>                
+            </div>
+
+            <!--토핑 정보-->
+            <div class="topping_discription col-6"> 
+                <h6>토핑정보</h6>
+                <form id="topping_discription_form" class="topping_discription_form">
+                    <div class="form-group row">
+                        <label for="input_topping_name" class="col-sm-4 col-form-label col-form-label-sm">토핑이름</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-sm" id="input_topping_name" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_topping_price" class="col-sm-4 col-form-label col-form-label-sm">추가금액</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-sm" id="input_topping_price" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_topping_img" class="col-sm-4 col-form-label col-form-label-sm">사진</label>
+                        <div class="col-sm-8">
+                            <input type="file" class="form-control-file form-control-sm" id="input_topping_img">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_topping_kitchen" class="col-sm-4 col-form-label col-form-label-sm">주방출력</label>
+                        <div class="form-check col-sm-7">
+                            <input class="form-check-input position-static" type="checkbox" id="input_topping_kitchen" value="option1" aria-label="...">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_topping_waiting" class="col-sm-4 col-form-label col-form-label-sm">준비중</label>
+                        <div class="form-check col-sm-7">
+                            <input class="form-check-input position-static" type="checkbox" id="input_topping_waiting" value="option1" aria-label="...">
+                        </div>
+                    </div>
+                    
+                    <!--버튼-->
+                    <div class="buttons float-right">
+                        <button type="button" class="btn" data-toggle="modal" data-target="#Modal_add" id="topping_add_btn">토핑등록</button>
+                        <button type="button" class="btn" data-toggle="modal" data-target="#Modal_modify" id="topping_modify_btn">토핑수정</button>
+                        <button type="button" class="btn" data-toggle="modal" data-target="#Modal_remove" id="topping_remove_btn">토핑삭제</button>
+                    </div>
+
+                    <!--모달창-->
+                    <!--모달창-->
+
+                    <div class="modal fade" id="Modal_add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="ModalLabel"></h5>
+                              <button type="button" class="close" id="close_btn" data-dismiss="modal" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal" id="add_ok_btn">OK</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="Modal_modify" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="ModalLabel"></h5>
+                              <button type="button" class="close" id="close_btn" data-dismiss="modal" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal" id="modify_ok_btn">OK</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="Modal_remove" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="ModalLabel"></h5>
+                              <button type="button" class="close" id="close_btn" data-dismiss="modal" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal" id="remove_ok_btn">OK</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                </form>
+                
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="topping_change.js"></script>
+    </body>
+    </html>

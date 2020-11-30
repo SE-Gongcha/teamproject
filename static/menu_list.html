@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>공차_kiosk_administrator_menu_list</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="flexbox.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <nav class="nav_left">
+            <div class="logo">
+                <img src="img/공차.png" alt="logo">
+            </div>
+            <ul>
+                <li><a href="menu_list.html">메뉴관리</a></li>
+                <li><a href="menu_list.html">메뉴현황</a></li>
+                <li><a href="menu_change.html">메뉴등록/수정</a></li>
+                <li><a href="topping_change.html">토핑등록/수정</a></li>
+            </ul>
+        </nav>
+
+        <nav class="nav border d-flex nav_top">
+            <a class="nav-link active" href="menu_list.html">메뉴관리</a>
+            <a class="nav-link" href="payment_list.html">매출관리</a>
+        </nav>
+        <button type="button" class="btn btn-light logout"><a href="login.html">로그아웃</a></button>
+        <h2>메뉴 현황</h2>
+        <!--본문-->
+        <div class="container">
+          <div style="width:100%; height:400px; overflow:auto;">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">순번</th>
+                    <th scope="col">카테고리</th>
+                    <th scope="col">상품명</th>
+                    <th scope="col">금액</th>
+                  </tr>
+                </thead>
+                <tbody id="menu_tbody">
+                </tbody>
+              </table>
+            </div>
+        </div>
+
+        <script src="menu_list.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+    </html>
