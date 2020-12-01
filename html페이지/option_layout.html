@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>옵션선택</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="option_layout.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+</head>
+<body>
+    <div class="container border">
+        <div class="container border" >
+            <p style="font-weight: bolder; font-size: xx-large; color: #c30e2e; margin-top: 20px;">01. 옵션 선택</p>
+        </div>
+        <div class="container border">
+            <!-- HOT/COLD sector-->
+            <p class="subcategory">HOT / COLD</p>
+            <div class="row">
+                <div class="col-sm-3 border">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="hot_cold" id="foo" value="COLD(포장)" onclick="opt1(event);">
+                        </label>
+                    </div>
+                    <!-- 이미지의 경우, flask static 파일에 저장해두고 불러와서 쓰는 형식으로 이용.-->
+                    <img class="ICE"src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="hot_cold_opt" >COLD(포장)</p>
+                </div>
+                <div class="col-sm-3 border">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="hot_cold" id="foo" value="COLD(매장)" onclick="opt1(event);">
+                        </label>
+                    </div>
+                    <img class="ICE" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="hot_cold_opt">COLD(매장)</p>
+                </div>
+                <div class="col-sm-3 border">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="hot_cold" id="foo" value="HOT(포장)"onclick="opt1(event);">
+                        </label>
+                    </div>
+                    <img class="ICE" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="hot_cold_opt">HOT(포장)</p>
+                </div>
+                <div class="col-sm-3 border">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="hot_cold" id="foo" value="HOT(매장)"onclick="opt1(event);">
+                        </label>
+                    </div>
+                    <img class="ICE" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="hot_cold_opt">HOT(매장)</p>
+                </div>
+
+        <!-- 얼음량 -->
+        <div class="container border">
+            <p class="subcategory">얼음량</p>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="ice" id="foo" value="Regular Ice" onclick="opt2(event);">
+                        </label>
+                    </div>
+                    <img class="ICE" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="ice_opt">Regular Ice</p>
+                </div>
+                <div class="col-sm-3">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="ice" id="foo" value="Full Ice" onclick="opt2(event);">
+                        </label>
+                    </div>
+                    <img class="ICE" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="ice_opt">Full Ice</p>
+                </div>
+                <div class="col-sm-3">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="ice" id="foo" value="Less Ice" onclick="opt2(event);">
+                        </label>
+                    </div>
+                    <img class="ICE" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="ice_opt">Less Ice</p>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+
+        <!-- 당도 -->
+        <div class="container border">
+            <p class="subcategory">당도</p>
+            <div class="row">
+                <div class="col">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="sweet" id="foo" value="50%" onclick="opt3(event);">
+                        </label>
+                    </div>
+                    <img class="SWEET" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="sweet_opt">50%</p>
+                </div>
+                <div class="col">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="sweet" id="foo" value="100%" onclick="opt3(event);">
+                        </label>
+                    </div>
+                    <img class="SWEET" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="sweet_opt">100%</p>
+                </div>
+                <div class="col">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="sweet" id="foo" value="70%" onclick="opt3(event);">
+                        </label>
+                    </div>
+                    <img class="SWEET" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="sweet_opt">70%</p>
+                </div>
+                <div class="col">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="sweet" id="foo" value="30%" onclick="opt3(event);">
+                        </label>
+                    </div>
+                    <img class="SWEET" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="sweet_opt">30%</p>
+                </div>
+                <div class="col">
+                    <div class="radio">
+                        <label for="foo">
+                            <input type="radio" name="sweet" id="foo" value="0%" onclick="opt3(event);">
+                        </label>
+                    </div>
+                    <img class="SWEET" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="sweet_opt">0%</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 토핑 -->
+        <div class="container border">
+            <p class="subcategory">토핑</p>
+            <div class="row">
+                <!-- 체크박스로 구현, 체크박스 3개까지 선택할 수 있도록 함수 추가-->
+                <div class="col border">
+                    <input type="checkbox" name="toppings" onclick="cnt_ck(this); opt4(this);" value="펄" style="margin-left: 70px;">
+                    <img class="TOPPING" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="topping_opt">펄</p>
+                    <p class="topping_price">+500</p>
+                </div>
+                <div class="col border">
+                    <input type="checkbox" name="toppings" onclick="cnt_ck(this); opt4(event);" value="밀크폼" style="margin-left: 70px;">
+                    <img class="TOPPING" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="topping_opt">밀크폼</p>
+                    <p class="topping_price">+500</p>
+                </div>
+                <div class="col border">
+                    <input type="checkbox" name="toppings" onclick="cnt_ck(this); opt4(event);" value="코코넛" style="margin-left: 70px;">
+                    <img class="TOPPING" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="topping_opt">코코넛</p>
+                    <p class="topping_price">+500</p>
+                </div>
+                <div class="col border">
+                    <input type="checkbox" name="toppings" onclick="cnt_ck(this); opt4(event);" value="알로에" style="margin-left: 70px;">
+                    <img class="TOPPING" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="topping_opt">알로에</p>
+                    <p class="topping_price">+500</p>
+                </div>
+                <div class="col border">
+                    <input type="checkbox" name="toppings" onclick="cnt_ck(this); opt4(event);"value="화이트펄" style="margin-left: 70px;">
+                    <img class="TOPPING" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="topping_opt">화이트펄</p>
+                    <p class="topping_price">+500</p>
+                </div>
+                <div class="col border">
+                    <input type="checkbox" name="toppings" onclick="cnt_ck(this); opt4(event);" value="치즈폼" style="margin-left: 70px;">
+                    <img class="TOPPING" src="https://github.com/SE-GongchaKiosk/teamproject/blob/lim/cold_takeout.png?raw=true" alt="">
+                    <p class="topping_opt">치즈폼</p>
+                    <p class="topping_price">+500</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 주문내역 확인 -->
+        <div class="container border">
+            <div class="row">
+                <div class="col-sm-8">
+                    <p style="font-size: large; font-weight: bold; color: #c30e2e;">메뉴 금액</p>
+                    <p id ="optresult" style="font-size: large; color: #c30e2e;" onclick="opt1(event) + opt2(event) + opt3(event) + opt4(event);">옵션 내역 반영</p>
+                </div>
+                <div class="col-sm-4">
+                    <p id = "menu" style="font-weight: bold; color: #c30e2e; text-align: right;">음료 가격 (원)</p>
+                    <p id = "top_result" style="color: #c30e2e; text-align: right;" onclick="cnt_ck(field);">토핑 가격(원)</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container border">
+            <div class="row border mt-3 mb-3">
+                <div class="col ml-5 mr-3" style="text-align: center;">
+                    <button class="btn btn-block" onclick="location.href='layout.html'" style="background-color:#c30e2e; border-radius: 10px; ">
+                        <p style="font-weight:bolder; font-size: x-large; text-align: center; color: white; margin-top:10px;">다시 주문하기</p></button>
+                </div>
+                <div class="col ml-5 mr-3" style="text-align: center;">
+                    <button id ="paybtn" class="btn btn-block" onclick="location.href='order_confirm.html'"
+                    style=" background-color:#c30e2e; border-radius: 10px;">
+                        <p style="font-weight:bolder; font-size: x-large; text-align: center; color: white; margin-top:10px;">결제하기</p></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 토핑 3개 초과 선택시 알림창 띄우기 -->
+    <script type="text/javascript">
+    var max_cnt = 3;
+    var cnt = 0;
+    var total_cnt = 0;
+    var result = 0;
+
+    function cnt_ck(field){
+        if (field.checked){
+            cnt += 1;
+            result += 500;
+        }
+        else{
+            cnt -= 1;
+            result -= 500;
+        }
+        if (cnt > max_cnt){
+            alert('토핑은 최대 3개까지만 선택 가능합니다.');
+        field.checked = false;
+        cnt -= 1;
+        result -= 500;
+        }
+
+        total_cnt = cnt;
+        
+        document.getElementById("top_result").innerHTML = result +' (원)';
+        
+    
+    }
+    
+    //하단 옵션 선택 정보 구현. 순서대로 hot/cold, 얼음량, 당도, 토핑.
+        function opt1(event){
+            document.getElementById('optresult').innerHTML = event.target.value;
+        };
+        function opt2(field){
+            document.getElementById('optresult').innerHTML += ', ' + event.target.value;
+        };
+        function opt3(field){
+            document.getElementById('optresult').innerHTML += ', ' + event.target.value;
+        };
+        function opt4(event){
+            const query = 'input[name = "toppings"]:checked';
+            const selectedlist = document.querySelectorAll(query);
+
+            let result = ', ';
+            selectedlist.forEach((el) => {result = el.value + ' ';});
+               
+            document.getElementById('optresult').innerHTML += ', '+ result;
+            
+        };
+        document.getElementById('menu').innerHTML = localStorage.getItem('orderPrice');
+        function save(){
+            var x = document.getElementById('optresult').innerHTML;
+            var topPrice = localStorage.setItem('topPrice',result);
+            var orderOpt = localStorage.setItem('orderOpt',x);
+        }
+        document.getElementById('paybtn').addEventListener('click',save);
+    </script>
+</body>
+</html>

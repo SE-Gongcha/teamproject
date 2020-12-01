@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴선택_티</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="layout.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <!--Category Selection-->
+    <div class="cotainer mb-5 mt-3" style="font-size: 25px;">
+        <div class="row row-cols-5 mt-2" style="text-align: center;">
+            <!-- 해당 카테고리명만 컬러 적용. -->
+            <ul><a href="layout.html" class="other_menu">시즌메뉴</a></ul>
+            <ul><a href="best.html" class="other_menu">BEST</a></ul>
+            <!--ul 태그 내에 a태그로 각 html페이지 연결하기. 위 참조.-->
+            <ul><a href="tea.html" class="other_menu" style="color: #c30e2e; font-weight: bold;">티</a></ul>
+            <ul><a href="milktea.html" class="other_menu">밀크티</a></ul>
+            <ul><a href="brownsugar.html" class="other_menu">브라운슈가</a></ul>
+            <ul><a href="fruitmix.html" class="other_menu">과일믹스</a></ul>
+            <ul><a href="smoothee.html" class="other_menu">스무디</a></ul>
+            <ul><a href="coffee.html" class="other_menu">커피</a></ul>
+            <ul><a href="snack.html" class="other_menu">스낵류</a></ul>
+        </div>
+    </div>
+
+    <!--메뉴 이미지 선택 가능 영역-->
+    <!-- 1줄당 음료 3개씩 배열. 1행 3열 형식의 표로 구성-->
+    <div class="container-fluid  ml-3 mt-3">
+        <div class=row>
+            <div class="col-sm-9 border">
+                <div class="row border">
+                    <!-- 첫 번째 아이템 margin left:3 -->
+                    <div class="col border ml-3">
+                        <!-- '음료명(c)' 에서 -->
+                        <p class="size" style="color: #c30e2e;">Large</p>
+                        <!-- img src의 경우, db에 저장된 데이터를 활용해야 하므로 나중에 다 변경해주어ㅑ됨!!-->
+                        <a href="option_layout.html"><img class="product_img" src="" alt="" width="250px"
+                                height="280px"></a>
+                        <p class="product">자스민 그린티</p>
+                        <p class="per_price" id="largeprice" price(this);>가격</p>
+                    </div>
+                    <!-- 두 번째 아이템부터는 margin left, right 각각 3씩 부여-->
+                    <div class="col border ml-3 mr-3">
+                        <p style="color: #c30e2e;">Jumbo</p>
+                        <a href="option_layout.html"><img class="product_img" src="" alt="" width="250px"
+                                height="280px"></a>
+                        <p class="product">음료명</p>
+                        <p class="per_price" id="jumboprice">가격</p>
+                    </div>
+
+
+                    <div class="col border ml-3 mr-3">
+                        <p style="color: #c30e2e;">Large</p>
+                        <a href="option_layout.html"><img class="product_img" src="" alt="" width="250px" height="280px"
+                                style="text-align: center; margin-left: 20px;"></a>
+                        <p class="product">음료명</p>
+                        <p class="per_price">가격</p>
+                    </div>
+                </div>
+                <!--1줄 끝-->
+
+                <div class="row border">
+                    <div class="col border ml-3">
+                        <p style="color: #c30e2e;">Jumbo</p>
+                        <a href="#"><img class="product_img" src="" alt="" width="250px" height="280px"></a>
+                        <p class="product">음료명</p>
+                        <p class="per_price">가격</p>
+                    </div>
+                    <!-- 두 번째 아이템부터는 margin left, right 각각 3씩 부여-->
+                    <div class="col border ml-3 mr-3">
+                        <p style="color: #c30e2e;">Large</p>
+                        <a href="#"><img class="product_img" src="" alt="" width="250px" height="280px"></a>
+                        <p class="product">음료명</p>
+                        <p class="per_price">가격</p>
+                    </div>
+                    <div class="col border ml-3 mr-3">
+                        <p style="color: #c30e2e;">Jumbo</p>
+                        <a href="#"><img class="product_img" src="" alt="" width="250px" height="280px"></a>
+                        <p class="product">음료명</p>
+                        <p class="per_price">가격</p>
+                    </div>
+                </div>
+                <!--2줄 끝-->
+                <div class="row border">
+                    <div class="col border ml-3">
+                        <p style="color: #c30e2e;">Large</p>
+                        <a href="#"><img class="product_img" src="" alt="" width="250px" height="280px"></a>
+                        <p class="product">음료명</p>
+                        <p class="per_price">가격</p>
+                    </div>
+                    <!-- 두 번째 아이템부터는 margin left, right 각각 3씩 부여-->
+                    <div class="col border ml-3 mr-3">
+                        <p style="color: #c30e2e;">Jumbo</p>
+                        <a href="#"><img class="product_img" src="" alt="" width="250px" height="280px"></a>
+                        <p class="product">음료명</p>
+                        <p class="per_price">가격</p>
+                    </div>
+                    <div class="col border ml-3 mr-3">
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- 우측 장바구니바 영역 -->
+            <div class="col-sm-3 border">
+                <div class="row border">
+                    <div class="col border"></div>
+                    <div class="col border" style="background-color: #c30e2e;">
+                        <i class="fa fa-shopping-basket"></i>
+                        <p class="order_bar">장바구니</p>
+                    </div>
+                </div>
+                <div class="row border">
+                    <div class="col border"></div>
+                    <div class="col border" style="background-color: #c30e2e;">
+                        <button class="btn border-white" onclick="location.href='#'"
+                            style="font-size: x-large; color: white; text-align:center; margin-top:60px; margin-left: 20px; margin-bottom: 20px;">전체
+                            삭제
+                        </button>
+
+                    </div>
+
+                    <!-- 오른쪽 장바구니 바 영역
+                 첫 번째 col: 그냥 빈칸 처리, 두 번째 col: 메뉴 바 구현-->
+                </div>
+                <div class="row border">
+                    <div class="col border"></div>
+                    <div class="col-lg border" style="background-color: #c30e2e;">
+                        <div class="container-sm mr-3"
+                            style="background-color: #6D000E; margin-right: 20px; margin-top:20px; margin-bottom: 20px; border-radius: 10%;">
+                            <i class="fa fa-plus-square" id="square"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row border">
+                    <div class="col border">
+
+                    </div>
+                    <div class="col-lg border" style="background-color: #c30e2e;">
+                        <div class="container-sm mr-3">
+                            <i class="fa fa-plus-square" id="square"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row border">
+                    <div class="col border">
+
+                    </div>
+                    <div class="col-lg border" style="background-color: #c30e2e;">
+                        <div class="container-sm mr-3">
+                            <i class="fa fa-plus-square" id="square"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row border">
+                    <div class="col border">
+
+                    </div>
+                    <div class="col border" style="background-color: #333333;">
+                        <a href="#"><i class="fa fa-credit-card"></i></a>
+                        <p class="order_bar">결제하기</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementByID("largeprice").innerHTML = 3500;
+        document.getElementByID("jumboprice").innerHTML = 4600;
+    </script>
+</body>
