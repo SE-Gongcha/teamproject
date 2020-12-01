@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+:root{
+    --modal-duration :1s;
+    --primary-color:  #c30e2e;
+}
+
+body{
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+}
+
+.login-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.logo{
+    text-align:center;
+}
+
+.logo img{
+    height: 200px;
+    width:150px;
+}
+
+.card{
+    border:2px solid var(--primary-color);
+}
+
+.btn-primary{
+    background-color: var(--primary-color);
+    color:#fff;
+    border:0;
+}
+
+.btn-primary:hover{
+    background-color: var(--primary-color);
+}
+.btn-primary:link{
+    background-color: var(--primary-color);
+}
+.btn-primary:visited{
+    background-color: var(--primary-color);
+}
+
+a:link {color:white;text-decoration: none;}
+a:visited {color: white; text-decoration: none;}
+a:hover { color: #999999; text-decoration: underline;}
