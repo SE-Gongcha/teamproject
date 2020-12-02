@@ -7,6 +7,12 @@ let payment_data=[
     products:[{product:'얼그레이 밀크티(J)', amount:1, per_price:5000}], total_price:5000, discount_price:600, real_price:4400},
     {number:'0001', receipt_number:'202011240001', transaction_date:'2020-11-24-09:37', 
     products:[{product:'블랙 밀크티(J)', amount:1, per_price:5000}], total_price:5000, discount_price:0, real_price:5000},
+    {number:'0001', receipt_number:'202011240001', transaction_date:'2020-11-24-09:37', 
+    products:[{product:'블랙 밀크티(J)', amount:1, per_price:5000}], total_price:5000, discount_price:0, real_price:5000},
+    {number:'0001', receipt_number:'202012010001', transaction_date:'2020-12-01-09:37', 
+    products:[{product:'블랙 밀크티(J)', amount:1, per_price:5000}], total_price:5000, discount_price:0, real_price:5000},
+    {number:'0001', receipt_number:'202012030001', transaction_date:'2020-12-03-09:37', 
+    products:[{product:'블랙 밀크티(J)', amount:1, per_price:5000}], total_price:5000, discount_price:0, real_price:5000},
 ];
 
 const payment_result_list = document.getElementById('payment_result_list'); 
@@ -18,28 +24,57 @@ updatePaymentResultDom();
 function formatMoney(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+function getDateRange(startDate, endDate) // 선택한 시작한 날짜와 끝나는 날짜 사이의 리스트 구하기
+
+    {
+        console.log(startDate, endDate);
+        var dateMove = new Date(startDate); 
+        var strDate = startDate;
+        var listDate = [];
+        if (startDate == endDate)
+        {
+            var strDate = dateMove.toISOString().slice(0,10);
+            listDate.push(strDate);
+        }
+        else
+        {
+            while (strDate < endDate)
+            {
+                var strDate = dateMove.toISOString().slice(0, 10);
+                listDate.push(strDate);
+                dateMove.setDate(dateMove.getDate() + 1);
+            }
+        }
+        return listDate;
+
+};
+
 function changeDate(payment_data){
     const selected_start_date = start_date.value.split('/');
-    const selected_end_date = end_date.value.split('/'); //[month,day,year]순 
+    const selected_end_date = end_date.value.split('/'); //[month,day,year]순 [11,22,2020]
     let selected_date_data = [];
-    console.log("시작 날짜", selected_start_date);
-    
+ 
+    const end_year = parseInt(selected_end_date[2]);
+    const end_month = parseInt(selected_end_date[0])<10? `0${parseInt(selected_end_date[0])}`:parseInt(selected_end_date[0]);
+    const end_day = parseInt(selected_end_date[1])<10? `0${parseInt(selected_end_date[1])}`: parseInt(selected_end_date[1]);
+
+    const start_year = parseInt(selected_start_date[2]);
+    const start_month = parseInt(selected_start_date[0]) <10? `0${parseInt(selected_start_date[0])}`:parseInt(selected_start_date[0]);;
+    const start_day = parseInt(selected_start_date[1])<10? `0${parseInt(selected_start_date[1])}`:parseInt(selected_start_date[1]);;
+
+    const start = `${start_year}-${start_month}-${start_day}`;
+    const end = `${end_year}-${end_month}-${end_day}`;
+    const date_list = getDateRange(start, end);//날짜 리스트 구하기
+    console.log(date_list);
+
+
     payment_data.forEach(item=>{
-        const transaction_date_array = item.transaction_date.split('-');
-        console.log(transaction_date_array);
-        const year = parseInt(transaction_date_array[0]);
-        const month = parseInt(transaction_date_array[1]);
-        const day = parseInt(transaction_date_array[2]);
+        const transaction_date= item.transaction_date.substr(0,10); //날짜 추출
+        console.log(transaction_date);
 
-        if( year <= parseInt(selected_end_date[2])
-        && month<=parseInt(selected_end_date[0]) 
-        && day<=parseInt(selected_end_date[1])){
-
-            if(parseInt(selected_start_date[2])<=year 
-            && parseInt(selected_start_date[0])<=month 
-            && parseInt(selected_start_date[1])<=day){
-                selected_date_data.push(item);
-            }
+        if (date_list.includes(transaction_date)){
+            selected_date_data.push(item);
         }
     });
     return selected_date_data;
