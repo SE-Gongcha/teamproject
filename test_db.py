@@ -749,7 +749,7 @@ db.order.delete_many({})
 db.pay.delete_many({})
 db.payments.delete_many({})
 
-for data in test_data2:
+for data in test_data:
     no = data['no']
     d = data['d']
     pro = data['pro']
