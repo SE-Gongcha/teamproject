@@ -11,7 +11,7 @@
     <body style="background-image: url(../static/kitchen_bg.jpg);">
         <div id="Kitchen_window" class="container align-items-center mx-auto" style="margin-top: 10%;">
             <div class="row">
-                <div class="col Kitchen_form p-3 ml-n5 mr-5 h-100" data-toggle="modal" data-target="#Kitchen_finished">
+                <div class="col Kitchen_form p-3 ml-n5 mr-5 h-100" onclick="nType = 0;" data-toggle="modal" data-target="#Kitchen_finished">
                     <h5>주문번호 : 1</h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -31,7 +31,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col Kitchen_form p-3">
+                <div class="col Kitchen_form p-3" onclick="nType = 1;">
                     <h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -51,7 +51,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col Kitchen_form p-3 mr-n5 ml-5">
+                <div class="col Kitchen_form p-3 mr-n5 ml-5" onclick="nType = 2;">
                     <h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="row" style="margin-top: 10%;">
-                <div class="col Kitchen_form p-3 ml-n5 mr-5 h-100">
+                <div class="col Kitchen_form p-3 ml-n5 mr-5 h-100" onclick="nType = 3;">
                     <h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -93,7 +93,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col Kitchen_form p-3 h-100">
+                <div class="col Kitchen_form p-3 h-100" onclick="nType = 4;">
                     <h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -113,7 +113,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col Kitchen_form p-3 mr-n5 ml-5 h-100">
+                <div class="col Kitchen_form p-3 mr-n5 ml-5 h-100" onclick="nType = 5;">
                     <h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -150,7 +150,7 @@
                         <p>해당 주문을 완료하셨습니까?</p>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-primary mr-3 px-4" data-dismiss="modal" onclick="clear()">예</button>
+                    <button type="button" id="confirm" class="btn btn-primary mr-3 px-4" onclick="clear()" data-dismiss="modal">예</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #6D000E;">아니오</button>
                     </div>
                 </div>
@@ -162,8 +162,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="../static/Payment.js"></script>
         <script>
+            var nType = new Number;
             function clear() {
-                var card_body = document.getElementsByClassName('col')[0]
+                var card_body = document.getElementsByClassName('col')[nType]
                 card_body.innerHTML = `<h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -183,6 +184,7 @@
                         </tbody>
                     </table>`
             }
+            $(document).delegate("#confirm", "click", () => {clear()});
         </script>
     </body>
 </html>
