@@ -13,19 +13,19 @@
 
 </head>
 <body onload="init();">
-    <div class="container border">
-        <div class="container border">
+    <div class="container">
+        <div class="container">
             <p style="font-size: xx-large; font-weight: bolder; color: #c30e2e;">02. 주문확인
             </p>
             <p style="color: gray;">주문내역을 확인해주세요</p>
         </div>
         <!-- 주문 정보 표시될 부분. 단위: container-->
-        <div class="container border">
+        <div class="container">
             <div class="row border">
-                <div id = "showimg" class="col-sm-2 border">
+                <div id = "showimg" class="col-sm-2">
                     <!--<img id = "showimg" src="http://www.gong-cha.co.kr/uploads/product/20190514/367VNGtpSPCH1ABo_20190514.png" alt="타로밀크티" height="150px" width="150px">-->
                 </div>
-                <div class="col-sm-4 border">
+                <div class="col-sm-4">
                     <p id = "temp_order_product" style="font-size: xx-large; color: #c30e2e; font-weight: bold;">타로밀크티 + 펄(L)</p>
                     <p id = "temp_order_price" style="font-weight: bold; font-size: x-large;">4,200원</p>
                 </div>
@@ -40,7 +40,7 @@
 
         <!--Summary of TotalPayment-->
         <div class="container border">
-            <div class="row border mt-3 mb-3">
+            <div class="row mt-3 mb-3">
                 <div class="col" style="font-size: 40px; font-weight: bolder; color: #c30e2e;">총 결제 금액</div>
                 <div class="col" style="font-size: 40px; font-weight: bolder; text-align: right; color: #c30e2e;">
                     <form name="form" method="get">
@@ -56,7 +56,7 @@
 
         <!--다시주문하기/결제하기-->
         <div class="container border">
-            <div class="row border mt-3 mb-3">
+            <div class="row mt-3 mb-3">
                 <div class="col ml-5 mr-3" style="text-align: center;">
                     <button id = "restart" class="btn btn-block" onclick="location.href='layout.html'" style="background-color:#c30e2e; border-radius: 10px; ">
                         <p style="font-weight:bolder; font-size: x-large; text-align: center; color: white; margin-top:10px;">다시 주문하기</p></button>
@@ -111,6 +111,10 @@
                     sum.value = parseInt(hm.value) * sell_price;
                 }
         }
+
+        document.getElementById('save_into_cart').addEventListener('click', function(){
+            localStorage.setItem('orderSumPrice',document.form.sum.value);
+        });
 </script>
         
 </body>
