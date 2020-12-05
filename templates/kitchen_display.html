@@ -254,12 +254,20 @@
                     var td2_text = document.createTextNode(amount);
                     td2.appendChild(td2_text);
                     var td3 = document.createElement('td');
-                    var br = document.createElement('br');
+                    var br_1 = document.createElement('br');
                     var td3_text_1 = document.createTextNode(options[0]+",");
                     var td3_text_2 = document.createTextNode(options[1]+", "+options[2]);
                     td3.appendChild(td3_text_1);
-                    td3.appendChild(br);
+                    td3.appendChild(br_1);
                     td3.appendChild(td3_text_2);
+                    if (options.length > 3) {
+                        var comma = document.createTextNode(",");
+                        var br_2 = document.createElement('br');
+                        var td3_text_3 = document.createTextNode(options[3]);
+                        td3.appendChild(comma);
+                        td3.appendChild(br_2);
+                        td3.appendChild(td3_text_3);
+                    }
                     tr.appendChild(td1);
                     tr.appendChild(td2);
                     tr.appendChild(td3);
