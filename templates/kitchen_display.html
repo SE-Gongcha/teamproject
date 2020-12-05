@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>주방 화면</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/Payment.css')}}">
+    </head>
+
+    <body style="background-image: url(../static/img/kitchen_bg.jpg);">
+        <div id="Kitchen_window" class="container align-items-center mx-auto" style="margin-top: 10%;">
+            <div class="row">
+                <div class="col Kitchen_form p-3 ml-n5 mr-5 h-100" onclick="nType = 0;" data-toggle="modal" data-target="#Kitchen_finished">
+                    <h5>주문번호 : 1</h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody class="products" style="font-size: 12px;">
+                            <tr>
+                                <td scope="row">타로밀크티 + 펄</td>
+                                <td>1</td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td>COLD(포장),<br>Regular ice, 50%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col Kitchen_form p-3" onclick="nType = 1;">
+                    <h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody class="products" style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col Kitchen_form p-3 mr-n5 ml-5" onclick="nType = 2;">
+                    <h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody class="products" style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10%;">
+                <div class="col Kitchen_form p-3 ml-n5 mr-5 h-100" onclick="nType = 3;">
+                    <h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody class="products" style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col Kitchen_form p-3 h-100" onclick="nType = 4;">
+                    <h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody class="products" style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col Kitchen_form p-3 mr-n5 ml-5 h-100" onclick="nType = 5;">
+                    <h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody class="products" style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 모달 -->
+        <div class="modal fade" id="Kitchen_finished" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">주문 완료 확인</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>해당 주문을 완료하셨습니까?</p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" id="confirm" class="btn btn-primary mr-3 px-4" onclick="clear()" data-dismiss="modal">예</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #6D000E;">아니오</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--        <script src="{{url_for('static', filename='js/Payment.js')}}"></script>-->
+
+        <script>
+            $(document).ready(function () {
+                resetKitchenData();
+                getKitchenData();
+            });
+
+            function resetKitchenData() {
+                for (let i = 0; i < 6; i++) {
+                    var card_body = document.getElementsByClassName('col')[i];
+                    card_body.innerHTML = `<h5>주문번호 : </h5>
+                                            <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>상품명</th>
+                                                        <th>수량</th>
+                                                        <th>옵션</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="products" style="font-size: 12px;">
+                                                    <tr>
+                                                        <td scope="row"></td>
+                                                        <td></td>
+                                                        <!--옵션을 넣는 칸입니다.-->
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>`
+                }
+            }
+
+            function getKitchenData() {
+                $.ajax({
+                    type: "GET",
+                    url: "/kitchen_db",
+                    data: {},
+                    success: function (response) {
+                        if (response["result"] == "success") {
+                            let kitchen = response["kitchen_data"];
+                            for (let i = 0; i < kitchen.length; i++) {
+                                if (i > 5) {
+                                    break;
+                                } else {
+                                    let num = kitchen[i]["number"];
+                                    let r_num = kitchen[i]["receipt_number"];
+                                    let pro = kitchen[i]["products"];
+                                    updateKitchenData(i, num, r_num);
+                                    updateOptions(i, pro);
+                                }
+                            }
+                            alert('데이터 불러오기 성공');
+                        } else {
+                            alert("데이터 가져오기 실패");
+                        }
+                    }
+                })
+            }
+
+            function updateKitchenData(i, num, r_num) {
+                var card_body = document.getElementsByClassName('col')[i];
+                card_body.setAttribute("onclick", "nType="+r_num+";");
+
+                card_body.innerHTML = `<h5>주문번호 : ${num}</h5>
+                                            <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>상품명</th>
+                                                        <th>수량</th>
+                                                        <th>옵션</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="products" style="font-size: 12px;">
+                                                </tbody>
+                                            </table>`
+            }
+
+            function updateOptions(i, pro) {
+                var card_body = document.getElementsByClassName('products')[i];
+
+                for (let j = 0; j < pro.length; j++) {
+                    let product = pro[j]["product"];
+                    let amount = pro[j]["amount"];
+                    let options = pro[j]["options"];
+
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    td1.setAttribute("scope", "row");
+                    var td1_text = document.createTextNode(product);
+                    td1.appendChild(td1_text);
+                    var td2 = document.createElement('td');
+                    var td2_text = document.createTextNode(amount);
+                    td2.appendChild(td2_text);
+                    var td3 = document.createElement('td');
+                    var br = document.createElement('br');
+                    var td3_text_1 = document.createTextNode(options[0]+",");
+                    var td3_text_2 = document.createTextNode(+options[1]+", "+options[2]);
+                    td3.appendChild(td3_text_1);
+                    td3.appendChild(br);
+                    td3.appendChild(td3_text_2);
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    card_body.appendChild(tr);
+                }
+            }
+
+            var nType = new Number;
+            function clear() {
+                var receipt_number = nType;
+
+                $.ajax({
+                    type: "POST",
+                    url: "/kitchen_db",
+                    data: {receipt_give: receipt_number},
+                    success: function (response) {
+                        if (response["result"] == "success") {
+                            alert('처리 성공');
+                            resetKitchenData();
+                            getKitchenData();
+                        } else {
+                            alert("처리 실패");
+                        }
+                    }
+                })
+
+            }
+            $(document).delegate("#confirm", "click", () => {clear()});
+
+        </script>
+    </body>
+</html>

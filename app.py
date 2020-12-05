@@ -13,7 +13,7 @@ db.orderCount.delete_many({})
 ## HTML을 주는 부분
 @app.route('/')
 def home():
-    return render_template('login.html')
+    return render_template('kitchen_display.html')
 
 @app.route('/login')
 def login():
@@ -38,6 +38,10 @@ def payment_list():
 @app.route('/payment_result')
 def payment_result():
     return render_template('payment_result.html')
+
+@app.route('/kitchen_display')
+def kitchen_display():
+    return render_template('kitchen_display.html')
 
 ## API 역할을 하는 부분
 # @app.route('/order', methods=['GET', 'POST'])
@@ -158,19 +162,19 @@ def get_payments_db():
 
     return jsonify({'result': 'success', 'payment_data': result})
 
-# @app.route('/check_db', methods=['GET', 'POST'])
-# def check_order():
-#     if request.method == 'POST': # 서빙이 끝난 주문의 처리 정보 수정하기
-#         receipt_receive = request.form['receipt_give']
-#         db.payments.update_one({'receipt_number': receipt_receive}, {'$set': {'order_state': True}})
-#
-#         return jsonify({'result': 'success'})
-#
-#     elif request.method == 'GET': # 주방 화면에 주문 번호(number), 영수증 번호(receipt_number)와 주문정보(products) 보내주기
-#         result = list(db.payments.find({'order_state': False}, {'_id': 0, 'receipt_number': 0, 'transaction_date': 0, 'total_price': 0,
-#                                                                 'discount_price': 0, 'real_price': 0, 'order_state': 0}))
-#
-#         return jsonify({'result': 'success', 'order_list': result})
+@app.route('/kitchen_db', methods=['GET', 'POST'])
+def check_order():
+    if request.method == 'POST': # 서빙이 끝난 주문의 처리 정보 수정하기
+        receipt_receive = request.form['receipt_give']
+        db.payments.update_one({'receipt_number': receipt_receive}, {'$set': {'order_state': True}})
+
+        return jsonify({'result': 'success'})
+
+    elif request.method == 'GET': # 주방 화면에 주문 번호(number), 영수증 번호(receipt_number)와 주문정보(products) 보내주기
+        result = list(db.payments.find({'order_state': False}, {'_id': 0, 'transaction_date': 0, 'total_price': 0,
+                                                                'discount_price': 0, 'real_price': 0, 'order_state': 0}))
+
+        return jsonify({'result': 'success', 'kitchen_data': result})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

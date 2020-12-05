@@ -745,11 +745,55 @@ test_data2 = [{'no': '0001',
                }
               ]
 
+test_data3 = [{'no': '0001',
+        'd': '2020-12-01-09:37',
+        'pro': [{'product':'블랙 밀크티(J)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 5000,
+        'dpri': 0,
+        'rpri': 5000
+         },
+        {'no': '0002',
+        'd': '2020-12-01-09:37',
+        'pro': [{'product':'다크초코 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}, {'product':'딸기 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 5000,
+        'rpri': 5000,
+          },
+        {'no': '0003',
+        'd': '2020-12-01-09:37',
+        'pro': [{'product':'얼그레이 밀크티(L)', 'amount':2, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 600,
+        'rpri': 9400
+         },
+        {'no': '0004',
+        'd': '2020-12-01-09:37',
+        'pro': [{'product':'블랙 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}, {'product':'얼그레이 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 3000,
+        'rpri': 7000,
+          },
+        {'no': '0005',
+        'd': '2020-12-01-09:37',
+        'pro': [{'product':'얼그레이 밀크티(L)', 'amount':2, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 600,
+        'rpri': 9400
+         },
+        {'no': '0006',
+        'd': '2020-12-01-09:37',
+        'pro': [{'product':'블랙 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}, {'product':'얼그레이 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 3000,
+        'rpri': 7000,
+          }
+        ]
+
 db.order.delete_many({})
 db.pay.delete_many({})
 db.payments.delete_many({})
 
-for data in test_data:
+for data in test_data3:
     no = data['no']
     d = data['d']
     pro = data['pro']
