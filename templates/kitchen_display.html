@@ -9,9 +9,9 @@
     </head>
 
     <body style="background-image: url(../static/img/kitchen_bg.jpg);">
-        <div id="Kitchen_window" class="container align-items-center mx-auto" style="margin-top: 10%;">
-            <div class="row">
-                <div class="col Kitchen_form p-3 ml-n5 mr-5 h-100" onclick="nType = 0;" data-toggle="modal" data-target="#Kitchen_finished">
+        <div id="Kitchen_window">
+            <div class="Kitchen_row">
+                <div class="Kitchen_form p-3" onclick="nType = 0;" data-toggle="modal" data-target="#Kitchen_finished">
                     <h5>주문번호 : 1</h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -31,7 +31,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col Kitchen_form p-3" onclick="nType = 1;">
+                <div class="Kitchen_form p-3" onclick="nType = 1;">
                     <h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -51,7 +51,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col Kitchen_form p-3 mr-n5 ml-5" onclick="nType = 2;">
+                <div class="Kitchen_form p-3" onclick="nType = 2;">
                     <h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -72,8 +72,8 @@
                     </table>
                 </div>
             </div>
-            <div class="row" style="margin-top: 10%;">
-                <div class="col Kitchen_form p-3 ml-n5 mr-5 h-100" onclick="nType = 3;">
+             <div class="Kitchen_row" style="margin-top: 10%;">
+                <div class="Kitchen_form p-3" onclick="nType = 3;">
                     <h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -93,7 +93,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col Kitchen_form p-3 h-100" onclick="nType = 4;">
+                 <div class="Kitchen_form p-3" onclick="nType = 4;">
                     <h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -113,7 +113,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col Kitchen_form p-3 mr-n5 ml-5 h-100" onclick="nType = 5;">
+                <div class="Kitchen_form p-3" onclick="nType = 5;">
                     <h5>주문번호 : </h5>
                     <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                         <thead>
@@ -170,7 +170,7 @@
 
             function resetKitchenData() {
                 for (let i = 0; i < 6; i++) {
-                    var card_body = document.getElementsByClassName('col')[i];
+                    var card_body = document.getElementsByClassName('Kitchen_form')[i];
                     card_body.innerHTML = `<h5>주문번호 : </h5>
                                             <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
                                                 <thead>
@@ -220,7 +220,7 @@
             }
 
             function updateKitchenData(i, num, r_num) {
-                var card_body = document.getElementsByClassName('col')[i];
+                var card_body = document.getElementsByClassName('Kitchen_form')[i];
                 card_body.setAttribute("onclick", "nType="+r_num+";");
 
                 card_body.innerHTML = `<h5>주문번호 : ${num}</h5>

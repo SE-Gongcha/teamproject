@@ -14,5 +14,7 @@ To do list
 2020/12/02 - update payment_result.js
 - [관리자 View | 매출액 확인 페이지] test DB & JS 날짜 기능 수정 코드 업데이트
 
-2020/12/05 - second commit
-- [주방 View | 주문 확인 페이지] 백엔드 1차 연결 완료  
+2020/12/05 - second commit 
+- [주방 View | 주문 확인 페이지] 백엔드 1차 연결 완료
+- [주방 View | 주문 확인 페이지] 레이아웃 수정 코드 업데이트
+
