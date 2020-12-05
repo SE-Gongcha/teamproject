@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>주방 화면</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/Payment.css">
+    </head>
+
+    <body style="background-image: url(../static/kitchen_bg.jpg);">
+        <div id="Kitchen_window">
+            <div class="Kitchen_row">
+                <div class="Kitchen_form p-3" onclick="nType = 0;" data-toggle="modal" data-target="#Kitchen_finished">
+                    <h5>주문번호 : 1</h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size: 12px;">
+                            <tr>
+                                <td scope="row">타로밀크티 + 펄</td>
+                                <td>1</td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td>COLD(포장),<br>Regular ice, 50%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="Kitchen_form p-3" onclick="nType = 1;">
+                    <h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="Kitchen_form p-3" onclick="nType = 2;">
+                    <h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="Kitchen_row" style="margin-top: 10%;">
+                <div class="Kitchen_form p-3" onclick="nType = 3;">
+                    <h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="Kitchen_form p-3" onclick="nType = 4;">
+                    <h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="Kitchen_form p-3" onclick="nType = 5;">
+                    <h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 모달 -->
+        <div class="modal fade" id="Kitchen_finished" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">주문 완료 확인</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>해당 주문을 완료하셨습니까?</p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" id="confirm" class="btn btn-primary mr-3 px-4" onclick="clear()" data-dismiss="modal">예</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #6D000E;">아니오</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="../static/Payment.js"></script>
+        <script>
+            var nType = new Number;
+            function clear() {
+                var card_body = document.getElementsByClassName('Kitchen_form')[nType]
+                card_body.innerHTML = `<h5>주문번호 : </h5>
+                    <table class="table table-condensed" style="background-color: white; border: #C30E2E;">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>수량</th>
+                                <th>옵션</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size: 12px;">
+                            <tr>
+                                <td scope="row"></td>
+                                <td></td>
+                                <!--옵션을 넣는 칸입니다.-->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>`
+            }
+            $(document).delegate("#confirm", "click", () => {clear()});
+        </script>
+    </body>
+</html>

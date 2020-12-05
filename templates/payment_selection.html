@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>결제 수단 선택</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/Payment.css">
+    </head>
+
+    <body>
+        <div id="Basic_window">
+            <div class="container text-center" style="font-weight: bolder;">
+                <div class="row">
+                    <div class="col" style="font-size: 64px; font-weight: bolder;">결제 수단 선택</div>
+                </div>
+            </div>
+            
+            <div class="container-* text-center" style="margin-top: 30%;">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <button class="col Sel_Box_form" onclick="payment_type_set(0)">공차 쿠폰</button>
+                    <div class="col-2"></div>
+                    <button class="col Sel_Box_form" onclick="payment_type_set(1)">통신사<br>할인</button>
+                    <div class="col-1"></div>
+                </div>
+                <div class="row" style="margin-top: 10%;">
+                    <div class="col-1"></div>
+                    <button class="col Sel_Box_form" onclick="payment_type_set(2)">기프티콘</button>
+                    <div class="col-2"></div>
+                    <button class="col Sel_Box_form" onclick="location.href = './payment_credit.html'">카드</button>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+
+            <div class="container-fluid text-center" style="margin-top: 20%;">
+                <div class="row align-items-end">
+                    <div class="col-4 align-self-end">
+                        <button type="button" name="Selction_back" id="" class="Destruct_color p-3">
+                        뒤로가기
+                        </button></div>
+                    <div class="col-3"></div>
+                    <div class="col-4 Sel_Box_form">
+                        <p style="font-size: 48px;">결제하실 금액:</p>
+                        <!-- div 내부에 표시될 금액 = total_price - discount_price -->
+                        <div id="Payment">{{real_price}}</div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="../static/Payment.js"></script>
+        <script>
+            if (localstorage.getItem('Is_Discount')) {
+                for (let i = 0; i < 2; i++) {
+                    document.getElementsByClassName('Sel_Box_form')[i].disabled = true;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>결제 실패</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/Payment.css">
+    </head>
+
+    <body>
+        <div class="card mx-auto text-center" style="width:600px; margin-top: 30%;">
+            <!-- gong_cha.jpg 삽입 필요! -->
+            <img class="card-img-top" src="../static/gong_cha.jpg" alt="Gongcha logo">
+            <div class="card-body">
+                <p class="card-title" style="font-weight: bold; font-size: 64px;">결제 실패</p>
+                <p class="card-body" id="Reason_failure" style="font-size: 36px;"></p>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="../static/Payment.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                Err_display();
+                setTimeout(function() {location.href = './payment_selection.html'}, 5000);
+            });
+        </script>
+    </body>
+</html>

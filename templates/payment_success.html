@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>결제 성공</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/Payment.css">
+    </head>
+
+    <body>
+        <div class="card mx-auto text-center" style="width:600px; margin-top: 30%;">
+            <!-- gong_cha.jpg 삽입 필요! -->
+            <img class="card-img-top" src="../static/gong_cha.jpg" alt="Gongcha logo">
+            <div class="card-body">
+                <p class="card-title" style="font-weight: bold; font-size: 48px;">결제 성공!</p>
+                <p class="card-text" style="font-weight: bold; font-size: 32px;">
+                    총 ㅇㅇ 원을 결제하셨습니다.<br>ㅇㅇ 원 남았습니다.
+                </p>
+            </div>
+        </div>
+
+        <!-- 해당 모달의 경우 totol_price =< discount_price + Paid_Price인 경우
+            일정 시간이 지난후 자동으로 뜨도록 JS상에서의 구현 필요 -->
+        <div class="modal fade" id="Stamp_confirm" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">공차 스탬프</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="font-size: 48px;">공차 스탬프를<br>적립하시겠습니까?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="stamp_scan.html" class="btn btn-secondary" style="background-color:#C30E2E;">예</a>
+                        <a href="print_order.html" class="btn btn-secondary" style="background-color: #6D000E;">아니오</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="../static/Payment.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                setTimeout(() => {$("#Stamp_confirm").modal();}, 5000);
+            });
+        </script>
+    </body>
+</html>

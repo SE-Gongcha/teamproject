@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>영수증 발급</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/Payment.css">
+    </head>
+
+    <body>
+        <div style="font-size:64px; font-weight: bold; text-align:center; margin-top: 10%;">주문 완료</div>
+        <div class="card w-75 h-25 mx-auto" style="margin-top: 10%;">
+            <div class="card-body">
+                <p class="card-title" style="color: #C30E2E; border: #C30E2E; font-size: 60px; font-weight:bold; text-align: center;">
+                    주문번호<br><br><span id="Order_no" style="font-size: 100px;">1</span>
+                </p>
+            </div>
+            <p class="card-footer" style="background: none; font-weight: bold; font-size: 48px;">결제가 완료되었습니다</p>
+        </div>
+        <div class="card w-75 h-25 mx-auto">
+            <!-- printer.png 삽입 필요! -->
+            <img class="card-img-top" src="../static/printer.png" alt="printer picture">
+            <div class="card-body">
+                <p class="card-title" style="font-weight: bold; font-size: 48px;">영수증과 음료 교환권을 받으세요</p>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="../static/Payment.js"></script>
+        <script>
+            document.onload = function() {
+                return setTimeout(function() {location.href = './main.html'}, 5000);
+            }
+        </script>
+    </body>
+</html>
