@@ -31,11 +31,11 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="../static/Payment.js"></script>
         <script>
-            document.onload = function() {
+            document.addEventListener("DOMContentLoaded", () => {
                 localStorage.clear();
                 setTimeout(function() {location.href = './main.html'}, 5000);
-                return
-            }
+                return;
+            });
         </script>
     </body>
 </html>

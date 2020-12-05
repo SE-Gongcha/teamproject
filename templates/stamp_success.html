@@ -22,9 +22,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="../static/Payment.js"></script>
         <script>
-            document.onload = function() {
-                return setTimeout(function() {location.href = './print_order.html'}, 5000);
-            }
+            document.addEventListener("DOMContentLoaded", () => {
+                setTimeout(() => {location.href = './print_order.html'}, 5000);
+            });
         </script>
     </body>
 </html>
