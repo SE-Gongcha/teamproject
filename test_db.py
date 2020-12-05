@@ -786,6 +786,13 @@ test_data3 = [{'no': '0001',
         'tpri': 10000,
         'dpri': 3000,
         'rpri': 7000,
+          },
+        {'no': '0007',
+        'd': '2020-12-01-09:37',
+        'pro': [{'product':'블랙 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 5000,
+        'dpri': 600,
+        'rpri': 4400,
           }
         ]
 
