@@ -25,7 +25,7 @@
                 <div class="row align-items-end">
                     <div class="col-8"><input type="text" autofocus style="font-size:48px" class="form-control-lg mb-2 w-100" id="code" value="" placeholder="번호를 입력해주세요"></div>
                     <!--- 모달 활성화 용 버튼 -->
-                    <div class="col-4"><button type="button" data-toggle="modal" data-target="#Payment_waiting" class="Gong_color p-3 ml-2 w-100">
+                    <div class="col-4"><button type="button" data-toggle="modal" data-target="#Payment_waiting" class="Gong_color p-3 ml-2 w-100" onclick="modal_timer()">
                         사용</button>
                     </div>
                 </div>
@@ -102,6 +102,9 @@
             let PayType = localstorage.getItem('Payment_type')
             document.getElementById('Scan_type').innerText = PayType;
             document.getElementById('Type_of_payment').innerText = PayType;
+            function modal_timer() {
+                setTimeout(function() {location.href = './payment_success.html'}, 5000);
+            }
         </script>
     </body>
 </html>

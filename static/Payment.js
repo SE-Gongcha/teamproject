@@ -1,6 +1,6 @@
 var localstorage = this.localStorage
 var lType_of_payment = ['공차 쿠폰', '통신사 할인', '기프티콘'];
-var lWhat_to_do = ['공차 쿠폰 번호를 입력해 주시오', '전화 번호를 입력해 주시오', '기프티콘 번호를 입력해 주시오'];
+var lWhat_to_do = ['전화 번호를 입력해 주시오', '전화 번호를 입력해 주시오', '기프티콘 번호를 입력해 주시오'];
 var lPic_src = ['../static/coupon_scan.jpg', '../static/membership_scan.jpg', '../static/gifticon_scan.jpg'];
 
 function payment_type_set(_type) {

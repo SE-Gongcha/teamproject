@@ -32,7 +32,9 @@
         <script src="../static/Payment.js"></script>
         <script>
             document.onload = function() {
-                return setTimeout(function() {location.href = './main.html'}, 5000);
+                localStorage.clear();
+                setTimeout(function() {location.href = './main.html'}, 5000);
+                return
             }
         </script>
     </body>

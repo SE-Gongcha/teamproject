@@ -1,4 +1,4 @@
-#Basic_window {margin-top: 25%; height: 70%; margin-bottom: 5%; margin-left: 5%; margin-right: 5%; width: 90%; display: flex;}
+#Basic_window {margin-top: 25%; height: 70%; margin-bottom: 5%; margin-left: 5%; margin-right: 5%; width: 90%;}
 #Kitchen_window {position: absolute; left: 10%; height: 80%; width: 80%;}
 .Sel_Box_form {height: 250px; font-size: 64px; background-color: #F2F2F2; border: 2px solid #C30E2E; text-align: center; box-shadow: 5px 5px 5px gray; padding: 2px; border-radius: 5px;}
 .Gong_color, .Destruct_color, .Numpad {font-size: 48px; border-radius: 20px; box-shadow: 5px 5px 5px gray; padding: 2px;}
