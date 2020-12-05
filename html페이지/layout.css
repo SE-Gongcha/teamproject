@@ -1,0 +1,48 @@
+p.product, p.per_price{
+    text-align: center;
+}
+
+p.order_bar{
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    color: white;
+}
+i.fa{
+    color: white;
+    text-align: center;
+    font-size: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 50px;
+}
+
+div.container-sm{
+    background-color: #6D000E;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10%;
+}
+
+#square{
+    font-size: 50px;
+    color: #c30e2e;
+    margin-top: 40px;
+    margin-left: 35px;
+    margin-bottom: 40px;
+}
+
+div.col-lg{
+    background-color: #c30e2e;
+}
+
+a.other_menu{
+    color: black;
+    text-decoration: none;
+}
+
+img.product_img{
+    text-align: center;
+    margin-left: 20px;
+}
