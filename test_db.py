@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
+import time
 
 app = Flask(__name__)
 
@@ -800,16 +801,19 @@ db.order.delete_many({})
 db.pay.delete_many({})
 db.payments.delete_many({})
 
-for data in test_data3:
-    no = data['no']
-    d = data['d']
-    pro = data['pro']
-    tpri = data['tpri']
-    dpri = data['dpri']
-    rpri = data['rpri']
+# for data in test_data3:
+#     no = data['no']
+#     d = data['d']
+#     pro = data['pro']
+#     tpri = data['tpri']
+#     dpri = data['dpri']
+#     rpri = data['rpri']
+#
+#     make_order_db(no, d, pro, tpri)
+#     make_pay_db(no, d, dpri, rpri)
 
-    make_order_db(no, d, pro, tpri)
-    make_pay_db(no, d, dpri, rpri)
+# make_payments_db()
 
-make_payments_db()
+strings = time.strftime("%Y-%m-%d-%H:%M")
+print(strings)
 

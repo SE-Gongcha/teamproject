@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>카드 결제</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/Payment.css')}}">
+    </head>
+
+    <body>
+        <div id="Basic_window">
+            <div class="container text-center" style="font-weight: bolder;">
+                <div class="row">
+                    <div id="Scan_type" class="col" style="font-size: 64px; font-weight: bolder;">카드 결제</div>
+                </div>
+            </div>
+            
+            <div class="container justify-content-center" style="margin-top: 10%;">
+                <div class="card border-scarlet">
+                    <div class="card-header" style="font-size: 48px;">다음과 같이 카드를 삽입해 주십시오</div>
+                </div>
+                <!-- credit.jpg 삽입 필요! -->
+                <img src="../../static/img/credit.jpg" class="card-img-bottom w-75 ml-5" alt="Img">
+            </div>
+
+            <div class="container-fluid text-center" style="margin-top: 20%;">
+                <div class="row" id="Btn_pos">
+                    <div class="col-1"></div>
+                    <div class="col-4">
+                        <button type="button" onclick="cancel()" name="Selction_back" class="Destruct_color p-3 w-100">
+                        뒤로가기</button>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-4">
+                        <!-- 모달 활성화 용 버튼 -->
+                    <button type="button" data-toggle="modal" data-target="#Payment_waiting" class="Gong_color p-3 w-100" onclick="Modal_set_timer()">
+                        승인 요청</button>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 모달 -->
+        <div class="modal fade" id="Payment_waiting" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">결제 처리중</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>잠시만 기다려 주십시오</p>
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                              <span class="sr-only">Loading...</span>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #6D000E;" onclick="restart('Timer', '../../static/img/timer_wttrans.gif');">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- timer_wttrans.gif 삽입 위치 -->
+        <footer class="position-absolute" style="bottom: 5%; right: 5%;"><img id="Timer" src="../../static/img/timer_wttrans.gif" style="height: 130px; width: 130px;"></footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="{{url_for('static', filename='js/Payment.js')}}"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(){
+                Timeout_timer = setTimeout(() => {
+                    window.localStorage.setItem('Err_code', '1');
+                    location.href = '/client/pay/error';
+                }, 15000);
+            });
+
+            function Modal_set_timer() {
+                clearTimeout(Timeout_timer)
+                Modal_timer = setTimeout(() => {
+                    location.href = '/client/pay/success'
+                }, 5000);
+            }
+
+            function restart(id,url) {
+                clearTimeout(Modal_timer)
+                var img = document.getElementById(id);
+                img.src = "";
+                img.src = url;
+                Timeout_timer = setTimeout(() => {
+                    window.localStorage.setItem('Err_code', '1');
+                    location.href = '/client/pay/error';
+                }, 15000);
+            }
+        </script>
+    </body>
+</html>

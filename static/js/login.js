@@ -7,7 +7,7 @@ const not_correct_text= document.getElementById('is_not_correct');
 login_btn.addEventListener('click', (e)=>{
     e.preventDefault();
     if(administrator_information.id===id.value && administrator_information.pd===pd.value){
-        location.replace('/menu_list');
+        location.replace('/manager/menu/list');
         console.log(id.value);
     }else{
         not_correct_text.innerText=`입력하신 아이디와 패스워드가 일치하지 않습니다.`;

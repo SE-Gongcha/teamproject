@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>주문확인</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body onload="init();">
+    <div class="container">
+        <div class="container">
+            <p style="font-size: xx-large; font-weight: bolder; color: #c30e2e;">02. 주문확인
+            </p>
+            <p style="color: gray;">주문내역을 확인해주세요</p>
+        </div>
+        <!-- 주문 정보 표시될 부분. 단위: container-->
+        <div class="container">
+            <div class="row border">
+                <div id = "showimg" class="col-sm-2">
+                    <!--<img id = "showimg" src="http://www.gong-cha.co.kr/uploads/product/20190514/367VNGtpSPCH1ABo_20190514.png" alt="타로밀크티" height="150px" width="150px">-->
+                </div>
+                <div class="col-sm-4">
+                    <p id = "temp_order_product" style="font-size: xx-large; color: #c30e2e; font-weight: bold;">타로밀크티 + 펄(L)</p>
+                    <p id = "temp_order_price" style="font-weight: bold; font-size: x-large;">4,200원</p>
+                </div>
+            </div>
+            <div class="row border">
+                <!--DB 임시저장 부분에서 가져오기 id: temp_order_option-->
+                <p id = "temp_order_option" style="font-size: large; color: #c30e2e; margin-left: 20px; margin-top:10px;">옵션: COLD(포장), Regular Ice, 50%</p>
+            </div>
+        </div>
+        
+        
+
+        <!--Summary of TotalPayment-->
+        <div class="container border">
+            <div class="row mt-3 mb-3">
+                <div class="col" style="font-size: 40px; font-weight: bolder; color: #c30e2e;">총 결제 금액</div>
+                <div class="col" style="font-size: 40px; font-weight: bolder; text-align: right; color: #c30e2e;">
+                    <form name="form" method="get">
+                        <input type=hidden name="sell_price" value="0">
+                        <input type="button" value=" - " onclick="del();" style="background-color: #c30e2e;color: white; border-radius: 10%;">
+                        <input type="text" name="amount" value="1" size="2" onchange="change();" style="border: none; text-align: center;">
+                        <input type="button" value=" + " onclick="add();" style="background-color: #c30e2e;color: white; border-radius: 10%;">
+                        <input type="text" name="sum" size="11" readonly style="color: #c30e2e; font-weight: bold; border: none; text-align: right;">원</form>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!--다시주문하기/결제하기-->
+        <div class="container border">
+            <div class="row mt-3 mb-3">
+                <div class="col ml-5 mr-3" style="text-align: center;">
+                    <button id = "restart" class="btn btn-block" onclick="location.href='/client/menu/layout'" style="background-color:#c30e2e; border-radius: 10px; ">
+                        <p style="font-weight:bolder; font-size: x-large; text-align: center; color: white; margin-top:10px;">다시 주문하기</p></button>
+                </div>
+                <div class="col ml-5 mr-3" style="text-align: center;">
+                    <button id="save_into_cart" class="btn btn-block" onclick="location.href='/client/pay/select'" style=" background-color:#c30e2e; border-radius: 10px;">
+                        <p style="font-weight:bolder; font-size: x-large; text-align: center; color: white; margin-top:10px;">결제하기</p></button>
+                </div>
+            </div>
+        </div>
+
+<script>
+
+    //document.getElementById('restart').localStorage.clear();    
+    // localStorage 활용해서 가격 정보 받는 부분 다시 체크하기!
+    var topprice = localStorage.getItem('topPrice');
+    var orderPrice = localStorage.getItem('orderPrice');
+    var orderName = localStorage.getItem('orderName');
+    var orderImg = localStorage.getItem('orderImg');
+    var orderOpt = localStorage.getItem('orderOpt');
+    document.getElementById('temp_order_option').innerHTML = orderOpt;
+    //document.getElementsByName('sell_price').value = (parseInt(topprice)+parseInt(orderPrice)).toString
+    document.getElementById('temp_order_product').innerHTML = orderName;
+    document.getElementById('temp_order_price').innerHTML = orderPrice +'원';
+    document.getElementById('showimg').innerHTML  = '<img src="'+orderImg+'" height="150px" width="150px">';
+    
+
+    var sell_price;
+        var amount;
+
+        window.onload = function(){
+            //sell_price = document.form.sell_price.value;
+            sell_price = (parseInt(localStorage.getItem('orderPrice'))+parseInt(localStorage.getItem('topPrice')));
+	        amount = document.form.amount.value;
+	        document.form.sum.value = sell_price;
+	        //change();
+        };
+
+        function add () {
+            hm = document.form.amount;
+            sum = document.form.sum;
+            hm.value ++ ;
+
+            sum.value = parseInt(hm.value) * sell_price;
+        }
+
+        function del () {
+            hm = document.form.amount;
+            sum = document.form.sum;
+                if (hm.value > 1) {
+                    hm.value -- ;
+                    sum.value = parseInt(hm.value) * sell_price;
+                }
+        }
+
+        document.getElementById('save_into_cart').addEventListener('click', function(){
+            localStorage.setItem('orderSumPrice',document.form.sum.value);
+            localStorage.setItem('totalPrice',document.form.sum.value);
+            saveOrderData();
+        });
+
+       function saveOrderData() {
+           let product = orderName;
+           let amount = parseInt(document.form.amount.value);
+           let per_price = parseInt(orderPrice);
+           let options = orderOpt;
+           let total_price = parseInt(document.form.sum.value);
+
+            $.ajax({
+                    type: "POST",
+                    url: "/order_db",
+                    data: {product_give: product,
+                            amount_give: amount,
+                            pprice_give: per_price,
+                            options_give: options,
+                            tprice_give: total_price},
+                    success: function (response) {
+                        if (response["result"] == "success") {
+                        } else {
+                            alert("처리 실패");
+                        }
+                    }
+                })
+    }
+
+
+</script>
+        
+</body>
+</html>

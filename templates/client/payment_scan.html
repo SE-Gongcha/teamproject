@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>바코드 스캔</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/Payment.css')}}">
+    </head>
+
+    <body>
+        <div id="Basic_window">
+            <div class="container text-center" style="font-weight: bolder;">
+                <div class="row">
+                    <!-- 이전 단계에서 선택한 종류에 따라 달라짐 -->
+                    <div id="Scan_type" class="col" style="font-size: 64px; font-weight: bolder;">Placeholder_Scan_Name</div>
+                </div>
+            </div>
+            
+            <div class="container" style="margin-top: 20%;">
+                <div class="card border-scarlet">
+                    <!-- 이전 단계에서 선택한 종류에 따라 달라짐-->
+                    <div class="card-header" style="font-size: 48px;"><span id="Type_of_payment">Placeholder_Scan_Name</span>을 스캔해 주시오</div>
+                </div>
+                <!-- 이전 단계에서 선택한 종류에 따라 이미지가 달라짐-->
+                <img src="#" id="Payment_img" class="card-img-bottom" alt="Img">
+            </div>
+
+            <div class="container-fluid text-center" style="margin-top: 40%;">
+                <div class="row" id="Btn_pos">
+                    <div class="col-1"></div>
+                    <div class="col-4">
+                        <button type="button" onclick="cancel()" class="Destruct_color p-3">
+                        뒤로가기</button>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-4">
+                        <button type="button" onclick="document.location='/client/pay/manual'" class="Gong_color p-3">
+                        직접 입력</button>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="{{url_for('static', filename='js/Payment.js')}}"></script>
+        <script>
+            let PayType = localstorage.getItem('Payment_type')
+            let PicSrc = localstorage.getItem('Pic_src')
+            document.getElementById('Scan_type').innerText = PayType;
+            document.getElementById('Type_of_payment').innerText = PayType;
+            document.getElementById('Payment_img').src = PicSrc;
+        </script>
+    </body>
+</html>
