@@ -15,13 +15,14 @@
             <div class="card-body">
                 <p class="card-title" style="font-weight: bold; font-size: 48px;">결제 성공!</p>
                 <p class="card-text" style="font-weight: bold; font-size: 32px;">
-                    총 ㅇㅇ 원을 결제하셨습니다.<br>ㅇㅇ 원 남았습니다.
+                    총 <span id="paid">ㅇㅇ</span> 원을 결제하셨습니다.<br><span id="to_pay">ㅇㅇ</span> 원 남았습니다.
                 </p>
             </div>
         </div>
 
         <!-- 해당 모달의 경우 totol_price =< discount_price + Paid_Price인 경우
-            일정 시간이 지난후 자동으로 뜨도록 JS상에서의 구현 필요 -->
+            일정 시간이 지난후 자동으로 뜨도록 JS상에서의 구현
+            해당 경우가 아닌 경우 결제창으로 돌아감 -->
         <div class="modal fade" id="Stamp_confirm" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -48,8 +49,52 @@
         <script src="../static/Payment.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                setTimeout(() => {$("#Stamp_confirm").modal();}, 5000);
+                var paid_price = feecalc()[0];
+                var pay_left = feecalc()[1];
+                document.getElementById('paid').innerText = paid_price;
+                document.getElementById('to_pay').innerText = pay_left;
+                
+                if (pay_left <= 0) {
+                    setTimeout(() => {$("#Stamp_confirm").modal();}, 5000);
+                } else {
+                    setTimeout(() => {location.href = './payment_selection.html'}, 5000);
+                };
             });
+
+            function feecalc() {
+                // orderSumPrice * nCalculation의 결과가 paid_price의 값!
+                var nCalculation = 0;
+                var paid;
+                var to_pay;
+
+                // Payment_type은 읽은 후 95행에서 값 삭제
+                var paytype = localStorage.getItem('Payment_type');
+                var order_Sum = parseInt(localStorage.getItem('orderSumPrice'));
+
+                switch (paytype) {
+                    // 공차 쿠폰의 경우 추가적인 연산이 필요!
+                    // 일단은 비워둠
+                    case '공차 쿠폰':
+                        break;
+
+                    case '통신사 할인':
+                        nCalculation = 0.1;
+                        paid = (order_Sum * nCalculation);
+                        to_pay = (order_Sum * (1-nCalculation));
+                        localStorage.setItem('orderSumPrice', to_pay);
+                        break;
+
+                    default:
+                        nCalculation = 1;
+                        paid = (order_Sum * nCalculation);
+                        to_pay = (order_Sum * (1-nCalculation));
+                        localStorage.setItem('orderSumPrice', to_pay);
+                        break;
+                };
+
+                localStorage.removeItem('Payment_type');
+                return [paid, to_pay];
+            };
         </script>
     </body>
 </html>
