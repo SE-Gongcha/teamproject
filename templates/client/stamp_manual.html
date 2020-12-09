@@ -25,7 +25,7 @@
                         <input type="text" autofocus style="font-size:48px" class="form-control-lg mb-2 w-100" id="code" value="" placeholder="번호를 입력해주세요">
                     </div>
                     <!--- 모달 활성화 용 버튼 -->
-                    <div class="col-4"><button type="button" data-toggle="modal" data-target="#Payment_waiting" class="Gong_color p-3 ml-2 w-100" onclick="modal_timer()">
+                    <div class="col-4"><button type="button" onclick="save_points()" data-toggle="modal" data-target="#Payment_waiting" class="Gong_color p-3 ml-2 w-100">
                         사용</button>
                     </div>
                 </div>
@@ -93,15 +93,40 @@
                 </div>
             </div>
         </div>
+        <script>
+            function save_points() {
+                const input_phonenum = document.getElementById('code');
+
+                let phonenum = input_phonenum.value;
+
+                phone_data = {
+                    'phone_number': phonenum
+                }
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{url_for('save_points')}}",
+                    data: phone_data,
+                    success: function (response) {
+                        console.log("성공!");
+                        console.log(phone_data);
+                        modal_timer();
+                    }
+
+                })
+            }
+
+            function modal_timer() {
+                setTimeout(function () {
+                    location.href = '/client/stamp/success'
+                }, 5000);
+            }
+        </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="{{url_for('static', filename='js/Payment.js')}}"></script>
-        <script>
-            function modal_timer() {
-                setTimeout(function() {location.href = '/client/stamp/success'}, 5000);
-            }
-        </script>
     </body>
 </html>

@@ -159,6 +159,97 @@ test_data = [{'no': '0001',
         'tpri': 10000,
         'dpri': 5000,
         'rpri': 5000,
+          },
+        {'no': '0001',
+        'd': '2020-12-03-09:37',
+        'pro': [{'product':'다크초코 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}, {'product':'딸기 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 5000,
+        'rpri': 5000,
+          },
+        {'no': '0002',
+        'd': '2020-12-03-09:37',
+        'pro': [{'product':'얼그레이 밀크티(L)', 'amount':2, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 600,
+        'rpri': 9400
+         },
+         {'no': '0001',
+        'd': '2020-12-04-09:37',
+        'pro': [{'product':'얼그레이 밀크티(J)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 5000,
+        'dpri': 600,
+        'rpri': 4400
+         },
+        {'no': '0002',
+        'd': '2020-12-04-09:37',
+        'pro': [{'product':'다크초코 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}, {'product':'딸기 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 5000,
+        'rpri': 5000,
+          },
+        {'no': '0001',
+        'd': '2020-12-05-09:37',
+        'pro': [{'product':'얼그레이 밀크티(J)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 5000,
+        'dpri': 600,
+        'rpri': 4400
+         },
+        {'no': '0002',
+        'd': '2020-12-05-09:37',
+        'pro': [{'product':'다크초코 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}, {'product':'딸기 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 5000,
+        'rpri': 5000,
+          },
+        {'no': '0003',
+        'd': '2020-12-05-09:37',
+        'pro': [{'product':'얼그레이 밀크티(L)', 'amount':2, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 600,
+        'rpri': 9400
+         },
+        {'no': '0001',
+        'd': '2020-12-06-09:37',
+        'pro': [{'product':'블랙 밀크티(J)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 5000,
+        'dpri': 0,
+        'rpri': 5000
+         },
+        {'no': '0002',
+        'd': '2020-12-06-09:37',
+        'pro': [{'product':'다크초코 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}, {'product':'딸기 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 5000,
+        'rpri': 5000,
+          },
+        {'no': '0003',
+        'd': '2020-12-06-09:37',
+        'pro': [{'product':'얼그레이 밀크티(L)', 'amount':2, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 600,
+        'rpri': 9400
+         },
+        {'no': '0004',
+        'd': '2020-12-06-09:37',
+        'pro': [{'product':'블랙 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}, {'product':'얼그레이 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 3000,
+        'rpri': 7000,
+          },
+        {'no': '0001',
+        'd': '2020-12-07-09:37',
+        'pro': [{'product':'얼그레이 밀크티(L)', 'amount':2, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 600,
+        'rpri': 9400
+         },
+        {'no': '0002',
+        'd': '2020-12-07-09:37',
+        'pro': [{'product':'다크초코 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}, {'product':'딸기 밀크티+펄(L)', 'amount':1, 'per_price':5000, 'options': ['COLD(포장)', 'Regular Ice', '50%']}],
+        'tpri': 10000,
+        'dpri': 5000,
+        'rpri': 5000,
           }
         ]
 
@@ -797,11 +888,12 @@ test_data3 = [{'no': '0001',
           }
         ]
 
+# 데이터 초기화용
 db.order.delete_many({})
 db.pay.delete_many({})
 db.payments.delete_many({})
 
-# for data in test_data3:
+# for data in test_data:
 #     no = data['no']
 #     d = data['d']
 #     pro = data['pro']
@@ -811,9 +903,70 @@ db.payments.delete_many({})
 #
 #     make_order_db(no, d, pro, tpri)
 #     make_pay_db(no, d, dpri, rpri)
-
+#
 # make_payments_db()
 
-strings = time.strftime("%Y-%m-%d-%H:%M")
-print(strings)
 
+
+
+# # 디비 내용 확인용
+# all_menu = db.menu.find({},{'_id':0})
+# for i in all_menu:
+#     print(i)
+
+
+# all_category = list(db.category.find({},{'_id': 0 }))
+# for i in all_category:
+#     print(i)
+
+# all_topping = db.topping.find({},{'_id':0})
+# for i in all_topping:
+#     print(i)
+
+
+# all_users = db.users.find({}, {'_id': 0})
+# for i in all_users:
+#     print(i)
+
+# 데이터 초기화용
+db.menu.delete_many({})
+db.category.delete_many({})
+db.topping.delete_many({})
+db.users.delete_many({})
+
+
+
+#데이터 추가용
+# 사용법
+# app.py 에서 복붙 후 저장(실행)->주석처리
+
+db.menu.insert_one({'number':1, 'product_number':'abc00001', 'category':'시즌메뉴', 'name':'토피넛 밀크티+펄(L)', 'price':5000,
+    'ice':True, 'hot':True, 'topping_number':3, 'is_waiting':False, 'is_output_kitchen':True})
+db.menu.insert_one({'number':2, 'product_number':'abc00002', 'category':'시즌메뉴', 'name':'초코바른 토피넛 스무디(L)', 'price':5500,
+    'ice':True, 'hot':True, 'topping_number':3, 'is_waiting':False, 'is_output_kitchen':True})
+db.menu.insert_one({'number':3, 'product_number':'abc00003', 'category':'시즌메뉴', 'name':'다크초코 밀크티+펄(라지)', 'price':4900,
+    'ice':True, 'hot':True, 'topping_number':3, 'is_waiting':False, 'is_output_kitchen':True})
+db.menu.insert_one({'number':4, 'product_number':'abc00004', 'category':'베스트 콤비네이션', 'name':'블랙 밀크티 + 펄(라지)', 'price':4500,
+    'ice':True, 'hot':True, 'topping_number':3, 'is_waiting':False, 'is_output_kitchen':True})
+db.menu.insert_one({'number':5, 'product_number':'abc00005', 'category':'베스트 콤비네이션', 'name':'블랙 밀크티 + 펄(J)', 'price':5800,
+    'ice':True, 'hot':True, 'topping_number':3, 'is_waiting':False, 'is_output_kitchen':True})
+db.menu.insert_one({'number':6, 'product_number':'abc00006', 'category':'베스트 콤비네이션', 'name':'타로 밀크티 + 펄(점보)', 'price':4500,
+    'ice':True, 'hot':True, 'topping_number':3, 'is_waiting':False, 'is_output_kitchen':True})
+db.menu.insert_one({'number':7, 'product_number':'abc00007', 'category':'베스트 콤비네이션', 'name':'타로 밀크티 + 펄(라지)', 'price':5800,
+    'ice':True, 'hot':True, 'topping_number':3, 'is_waiting':False, 'is_output_kitchen':True})
+db.menu.insert_one({'number':8, 'product_number':'abc00008', 'category':'베스트 콤비네이션', 'name':'제주 그린 밀크티+ 펄(라지', 'price':4900,
+    'ice':True, 'hot':True, 'topping_number':3, 'is_waiting':False, 'is_output_kitchen':True})
+db.menu.insert_one({'number':9, 'product_number':'abc00009', 'category':'베스트 콤비네이션', 'name':'우롱티+ 밀크폼(라지)', 'price':3700,
+    'ice':True, 'hot':True, 'topping_number':3, 'is_waiting':False, 'is_output_kitchen':True})
+db.menu.insert_one({'number':10, 'product_number':'abc000010', 'category':'베스트 콤비네이션', 'name':'우롱티+ 밀크폼(점보)', 'price':4900,
+    'ice':True, 'hot':True, 'topping_number':3, 'is_waiting':False, 'is_output_kitchen':True})
+
+db.category.insert_one({'category': '시즌메뉴'})
+db.category.insert_one({'category': '베스트 콤비네이션'})
+
+db.topping.insert_one({'is_output_kitchen':True, 'is_waiting':False,  'price': 500, 'topping_name': '펄'  })
+db.topping.insert_one({'is_output_kitchen':True, 'is_waiting':False,  'price': 500, 'topping_name': '밀크폼'  })
+db.topping.insert_one({'is_output_kitchen':True, 'is_waiting':False,  'price': 500, 'topping_name': '코코넛'  })
+db.topping.insert_one({'is_output_kitchen':True, 'is_waiting':False,  'price': 500, 'topping_name': '알로에'  })
+db.topping.insert_one({'is_output_kitchen':True, 'is_waiting':False,  'price': 500, 'topping_name': '화이트펄'  })
+db.topping.insert_one({'is_output_kitchen':True, 'is_waiting':False,  'price': 500, 'topping_name': '치즈펄'  })

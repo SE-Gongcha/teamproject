@@ -20,3 +20,6 @@ To do list
 
 2020/12/06 - third commit
 - [관리자 View | 결제 & 매출 관리 페이지] 백엔드 1차 연결 완료
+
+2020/12/08 - final commit
+- 백엔드 전체 연결 완료

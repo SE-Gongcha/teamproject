@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>공차_kiosk_administrator_menu_list</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/style.css')}}">
+    </head>
+    <body>
+
+        <nav class="nav_left">
+            <div class="logo">
+                <img src="../../static/img/공차.png" alt="logo">
+            </div>
+            <ul>
+                <li><a href="/manager/menu/list">메뉴관리</a></li>
+                <li><a href="/manager/menu/list">메뉴현황</a></li>
+                <li><a href="/manager/menu/change">메뉴등록/수정</a></li>
+                <li><a href="/manager/topping/change">토핑등록/수정</a></li>
+            </ul>
+        </nav>
+
+        <nav class="nav border d-flex nav_top">
+            <a class="nav-link active" href="/manager/menu/list">메뉴관리</a>
+            <a class="nav-link" href="/manager/payment/list">매출관리</a>
+        </nav>
+        <button type="button" class="btn btn-light logout"><a href="/manager/login">로그아웃</a></button>
+
+
+        <h2>메뉴 등록/수정</h2>
+        <div class="container d-flex">
+            <!--category와 menu 선택-->
+            <div class="category_menu col-5">
+                <div class="row d-flex flex-column">
+                    <h6>카테고리</h6>
+                    <div class="buttons category_buttons">
+                        <button type="button" data-toggle="modal" data-target="#Modal_category_add" class="btn"
+                                id="category_add_btn">추가
+                        </button>
+                        <button type="button" data-toggle="modal" data-target="#Modal_category_remove" class="btn"
+                                id="category_remove_btn">삭제
+                        </button>
+                    </div>
+                    <select class="custom-select" id="category_select" size="10">
+                    </select>
+                    <h6>메뉴명</h6>
+                    <select class="custom-select" id="menu_select" size="10">
+                    </select>
+                </div>
+            </div>
+
+
+            <!--메뉴정보칸-->
+            <div class="menu_discription col-6">
+                <h6>메뉴정보</h6>
+                <form id="menu_discription_form" class="menu_discription_form" method="post">
+                    <div class="form-group row">
+                        <label for="input_category" class="col-sm-4 col-form-label col-form-label-sm">카테고리명</label>
+                        <div class="col-sm-8">
+                            <select id="input_category" class="form-control form-control-sm bg-secondary">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_menu" class="col-sm-4 col-form-label col-form-label-sm">메뉴명</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-sm" id="input_menu">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_price" class="col-sm-4 col-form-label col-form-label-sm">금액</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control form-control-sm" id="input_price">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_img" class="col-sm-4 col-form-label col-form-label-sm">사진</label>
+                        <div class="col-sm-8">
+                            <label style="border: 1px solid; padding:2px; background-color: #Fff;">
+                                <input type="file" class="form-control-file form-control-sm" id="input_img"
+                                       style="display: none;"><a>사진 추가</a>
+                                <label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_kitchen" class="col-sm-4 col-form-label col-form-label-sm">주방출력</label>
+                        <div class="form-check col-sm-7">
+                            <input class="form-check-input position-static" type="checkbox" id="input_kitchen"
+                                   value="option1" aria-label="...">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_waiting" class="col-sm-4 col-form-label col-form-label-sm">준비중 표시</label>
+                        <div class="form-check col-sm-7">
+                            <input class="form-check-input position-static" type="checkbox" id="input_waiting"
+                                   value="option1" aria-label="...">
+                        </div>
+                    </div>
+                    <!--음료가능여부-->
+                    <div class="menu_discription_plus">
+                        <div class="form-group row">
+                            <label for="input_ice" class="col-sm-4 col-form-label col-form-label-sm">ICE</label>
+                            <div class="form-check col-sm-7">
+                                <input class="form-check-input position-static" type="checkbox" id="input_ice"
+                                       value="option1" aria-label="...">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input_hot" class="col-sm-4 col-form-label col-form-label-sm">HOT</label>
+                            <div class="form-check col-sm-7">
+                                <input class="form-check-input position-static" type="checkbox" id="input_hot"
+                                       value="option1" aria-label="...">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input_topping" class="col-sm-4 col-form-label col-form-label-sm">토핑갯수제한</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control form-control-sm" id="input_topping">
+                            </div>
+                        </div>
+                    </div>
+                    <!--버튼-->
+                    <div class="buttons float-right">
+                        <button type="button" class="btn" data-toggle="modal" data-target="#Modal_add"
+                                id="menu_add_btn">메뉴등록
+                        </button>
+                        <button type="button" class="btn" data-toggle="modal" data-target="#Modal_modify"
+                                id="menu_modify_btn">메뉴수정
+                        </button>
+                        <button type="button" class="btn" data-toggle="modal" data-target="#Modal_remove"
+                                id="menu_remove_btn">메뉴삭제
+                        </button>
+                    </div>
+
+
+                </form>
+            </div>
+
+
+        </div>
+
+        <!-- 메뉴 모달창-->
+        <div class="modal fade" id="Modal_add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel"></h5>
+                        <button type="button" class="close" id="close_btn" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="add_menu()" class="btn" data-dismiss="modal" id="add_ok_btn">OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="Modal_modify" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel"></h5>
+                        <button type="button" class="close" id="close_btn" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="update_menu()" class="btn" data-dismiss="modal"
+                                id="modify_ok_btn">OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="Modal_remove" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel"></h5>
+                        <button type="button" class="close" id="close_btn" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="delete_menu()" class="btn" data-dismiss="modal"
+                                id="remove_ok_btn">OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--카테고리 모달창-->
+        <div class="modal fade" id="Modal_category_add" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">카테고리추가안내</h5>
+                        <button type="button" class="close" id="close_btn" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>추가할 카테고리명을 입력해주세요.</p>
+                        <input type="text" id="input_category_add">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="add_category()" class="btn" data-dismiss="modal"
+                                id="cateogory_add_ok_btn">OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="Modal_category_remove" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel"></h5>
+                        <button type="button" class="close" id="close_btn" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" onclick="delete_category()" data-dismiss="modal"
+                                id="cateogory_remove_ok_btn">OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script type="text/javascript" charset="UTF-8">
+            $('#upload-file-btn').change(function (e) {
+                e.preventDefault();
+                // var form = new FormData(document.getElementById('menu_discription_form'));
+                // formData.append("message", "ajax로 파일 전송하기");
+                // formData.append("file", $("#menu_discription_form")[0].formData);
+                // var file = document.getElementById('upload-file-btn').files[0];
+
+                // var formData = new FormData();
+                // formData.append('file', $('input[type=file]')[0].files[0]);
+                console.log($('input[type=file]')[0].files[0]);
+                formData = {
+                    'file': $('input[type=file]')[0].files[0]
+                }
+                console.log(formData);
+
+                if (formData.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: '/uploadajax',
+                        data: JSON.stringify(formData),
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            if (response != null) {
+                                console.log(response);
+                            } else {
+                                alert('No Response...!');
+                            }
+                        },
+                        error: function (error) {
+                            alert("error");
+                        }
+                    });
+
+                }
+            });
+
+
+            //메뉴 추가(DB)
+            function add_menu() {
+
+                let category = input_categoryEl.value;
+                let menu = input_menuEl.value;
+                let price = input_priceEl.value;
+                let kitchen = input_kitchenEl.checked;
+                let waiting = input_waitingEl.checked;
+                let ice = input_iceEl.checked;
+                let hot = input_hotEl.checked;
+                let topping = input_toppingEl.value;
+                let file = $('input[type=file]')[0].files[0];
+
+                let menu_data = {
+                    'category_give': category,
+                    'menu_give': menu,
+                    'price_give': price,
+                    'kitchen_give': kitchen,
+                    'waiting_give': waiting,
+                    'ice_give': ice,
+                    'hot_give': hot,
+                    'topping_give': topping,
+                }
+
+                const formData = new FormData();
+                formData.append(
+                    'file', $('input[type=file]')[0].files[0]
+                )
+                formData.append('category_give', category)
+                formData.append('menu_give', menu)
+                formData.append('price_give', price)
+                formData.append('kitchen_give', kitchen)
+                formData.append('waiting_give', waiting)
+                formData.append('ice_give', ice)
+                formData.append('hot_give', hot)
+                formData.append('topping_give', topping)
+                console.log(formData);
+
+                $.ajax({
+                    type: "POST",
+                    url: '/add_menu',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    success: function (response) {
+                        console.log('이미지 전송 완료!');
+                    }
+                })
+            }
+
+            //메뉴 수정
+            function update_menu() {
+                let category = input_categoryEl.value;
+                let menu = input_menuEl.value;
+                let price = input_priceEl.value;
+                let kitchen = input_kitchenEl.checked;
+                let waiting = input_waitingEl.checked;
+                let ice = input_iceEl.checked;
+                let hot = input_hotEl.checked;
+                let topping = input_toppingEl.value;
+
+                let updated_data = {
+                    'category_give': category,
+                    'menu_give': menu,
+                    'price_give': price,
+                    'kitchen_give': kitchen,
+                    'waiting_give': waiting,
+                    'ice_give': ice,
+                    'hot_give': hot,
+                    'topping_give': topping
+                }
+                $.ajax({
+                        type: "POST",
+                        url: "{{url_for('update_menu')}}",
+                        data: JSON.stringify(updated_data),
+                        success: function (response) {
+                            console.log("요청 성공!");
+                            console.log(updated_data);
+                        }
+                    }
+                )
+            }
+
+            //메뉴 삭제
+            function delete_menu() {
+                let category = input_categoryEl.value;
+                let menu = input_menuEl.value;
+                let price = input_priceEl.value;
+
+                $.ajax({
+                        type: "POST",
+                        url: "{{url_for('delete_menu')}}",
+                        data: {
+                            'category_give': category,
+                            'menu_give': menu,
+                            'price_give': price,
+                        },
+                        success: function (response) {
+                            console.log("삭제 성공!");
+                        }
+                    }
+                )
+            }
+
+
+            //카테고리 추가
+            function add_category() {
+                let category = input_category_add.value;
+                console.log(category);
+                $.ajax({
+                        type: "POST",
+                        url: "{{url_for('add_category')}}",
+                        data: {
+                            'category_give': category,
+                        },
+                        success: function (response) {
+                            console.log("성공!");
+                        }
+                    }
+                )
+            }
+
+            //카테고리 삭제
+            function delete_category() {
+                let category = input_categoryEl.value;
+                $.ajax({
+                        type: "POST",
+                        url: "{{url_for('delete_category')}}",
+                        data: {
+                            'category_give': category
+                        },
+                        success: function (response) {
+                            console.log("성공!");
+                        }
+                    }
+                )
+            }
+
+
+            // function dataURLtoFile(dataurl, filename) {
+
+            //                 var arr = dataurl.split(','),
+            //                     mime = arr[0].match(/:(.*?);/)[1],
+            //                     bstr = atob(arr[1]),
+            //                     n = bstr.length,
+            //                     u8arr = new Uint8Array(n);
+
+            //                 while(n--){
+            //                     u8arr[n] = bstr.charCodeAt(n);
+            //                 }
+
+            //                 return new File([u8arr], filename, {type:mime});
+            // }
+            //DB에서 메뉴정보/카테고리 정보 불러오기
+            var menu_data = new Array();
+            var category_data = new Array();
+            const all_menu = JSON.parse('{{ all_menu |default("")| tojson }}');
+            for (var property in all_menu) {
+                if (all_menu[property]['file']) {
+
+                    const url = 'data:image/png;' + all_menu[property]['file'] + ',aGVsbG8gd29ybGQ=';
+                    fetch(url)
+                        .then(res => res.blob())
+                        .then(blob => {
+                            const file = new File([blob], all_menu[property]['name'] + '.png', {type: "image/png"});
+                            all_menu[property]['file'] = file;
+                            console.log(all_menu[property]['file']);
+                            ;
+                        })
+                    menu_data.push(all_menu[property]);
+                } else {
+                    menu_data.push(all_menu[property]);
+                }
+            }
+            console.log(menu_data);
+
+            const all_category = JSON.parse('{{ all_category |default("")| tojson }}');
+            for (var j in all_category) {
+                category_data.push(all_category[j]['category']);
+            }
+            console.log(category_data);
+
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="{{url_for('static', filename= 'js/menu_change.js')}}"></script>
+    </body>
+</html>

@@ -58,8 +58,8 @@
             }
 
             function postPayData() {
-                let total_price = parseInt(localStorage.getItem('totalPrice'));
-                let discount_price = parseInt(localStorage.getItem('DiscountPrice'));
+                let total_price = localStorage.getItem('totalPrice');
+                let discount_price = localStorage.getItem('DiscountPrice');
                 if (discount_price == null) {
                     discount_price = 0;
                 }
