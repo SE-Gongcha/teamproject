@@ -23,9 +23,11 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="{{url_for('static', filename='js/Payment.js')}}"></script>
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function () {
                 Err_display();
-                setTimeout(function() {location.href = '/client/pay/select'}, 5000);
+                setTimeout(function () {
+                    location.href = '/client/pay/select'
+                }, 5000);
             });
         </script>
     </body>

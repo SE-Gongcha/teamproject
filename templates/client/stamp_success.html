@@ -23,7 +23,9 @@
         <script src="{{url_for('static', filename='js/Payment.js')}}"></script>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                setTimeout(() => {location.href = '/client/print'}, 5000);
+                setTimeout(() => {
+                    location.href = '/client/print'
+                }, 5000);
             });
         </script>
     </body>

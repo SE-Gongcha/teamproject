@@ -13,20 +13,27 @@
             <div class="container text-center" style="font-weight: bolder;">
                 <div class="row">
                     <!-- payment_scan과 동일하게 이전 선택에 따라서 문구가 달라짐-->
-                    <div id="Scan_type" class="col" style="font-size: 64px; font-weight: bolder;">Placeholder_Manual_Name</div>
+                    <div id="Scan_type" class="col" style="font-size: 64px; font-weight: bolder;">
+                        Placeholder_Manual_Name
+                    </div>
                 </div>
             </div>
-            
+
             <div class="container" style="margin-top: 5%;">
                 <div class="row">
                     <!-- 이전 선택에 따라서 문구가 달라짐 -->
                     <p style="font-size: 48px;"><span id="Type_of_payment">Placeholder_Scan_Name</span><br>입력해 주십시오</p>
                 </div>
                 <div class="row align-items-end">
-                    <div class="col-8"><input type="text" autofocus style="font-size:48px" class="form-control-lg mb-2 w-100" id="code" value="" placeholder="번호를 입력해주세요"></div>
+                    <div class="col-8"><input type="text" autofocus style="font-size:48px"
+                                              class="form-control-lg mb-2 w-100" id="code" value=""
+                                              placeholder="번호를 입력해주세요"></div>
                     <!--- 모달 활성화 용 버튼 -->
-                    <div class="col-4"><button type="button" data-toggle="modal" data-target="#Payment_waiting" class="Gong_color p-3 ml-2 w-100" onclick="modal_timer()">
-                        사용</button>
+                    <div class="col-4">
+                        <button type="button" data-toggle="modal" data-target="#Payment_waiting"
+                                class="Gong_color p-3 ml-2 w-100" onclick="modal_timer()">
+                            사용
+                        </button>
                     </div>
                 </div>
             </div>
@@ -36,24 +43,59 @@
                 <div class="col">
                     <div class="btn-group-vertical w-100" role="group" aria-label="Basic example">
                         <div class="btn-group">
-                            <button type="button" class="num btn Numpad py-3 " onclick="document.getElementById('code').value=document.getElementById('code').value + '1';">1</button>
-                            <button type="button" class="num btn Numpad py-3 " onclick="document.getElementById('code').value=document.getElementById('code').value + '2';">2</button>
-                            <button type="button" class="num btn Numpad py-3 " onclick="document.getElementById('code').value=document.getElementById('code').value + '3';">3</button>
+                            <button type="button" class="num btn Numpad py-3 "
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value + '1';">
+                                1
+                            </button>
+                            <button type="button" class="num btn Numpad py-3 "
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value + '2';">
+                                2
+                            </button>
+                            <button type="button" class="num btn Numpad py-3 "
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value + '3';">
+                                3
+                            </button>
                         </div>
                         <div class="btn-group">
-                            <button type="button" class="num btn Numpad py-3 " onclick="document.getElementById('code').value=document.getElementById('code').value + '4';">4</button>
-                            <button type="button" class="num btn Numpad py-3 " onclick="document.getElementById('code').value=document.getElementById('code').value + '5';">5</button>
-                            <button type="button" class="num btn Numpad py-3 " onclick="document.getElementById('code').value=document.getElementById('code').value + '6';">6</button>
+                            <button type="button" class="num btn Numpad py-3 "
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value + '4';">
+                                4
+                            </button>
+                            <button type="button" class="num btn Numpad py-3 "
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value + '5';">
+                                5
+                            </button>
+                            <button type="button" class="num btn Numpad py-3 "
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value + '6';">
+                                6
+                            </button>
                         </div>
                         <div class="btn-group">
-                            <button type="button" class="num btn Numpad py-3 " onclick="document.getElementById('code').value=document.getElementById('code').value + '7';">7</button>
-                            <button type="button" class="num btn Numpad py-3 " onclick="document.getElementById('code').value=document.getElementById('code').value + '8';">8</button>
-                            <button type="button" class="num btn Numpad py-3 " onclick="document.getElementById('code').value=document.getElementById('code').value + '9';">9</button>
+                            <button type="button" class="num btn Numpad py-3 "
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value + '7';">
+                                7
+                            </button>
+                            <button type="button" class="num btn Numpad py-3 "
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value + '8';">
+                                8
+                            </button>
+                            <button type="button" class="num btn Numpad py-3 "
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value + '9';">
+                                9
+                            </button>
                         </div>
                         <div class="btn-group">
-                            <button type="button" class="num btn Destruct_color py-3" onclick="document.getElementById('code').value=document.getElementById('code').value.slice(0, -1);">←</button>
-                            <button type="button" class="num btn Numpad py-3" onclick="document.getElementById('code').value=document.getElementById('code').value + '0';"> 0 </button>
-                            <button type="button" class="num btn Destruct_color py-3" style="font-size: 24px;" onclick="document.getElementById('code').value= ''">CLR</button>
+                            <button type="button" class="num btn Destruct_color py-3"
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value.slice(0, -1);">
+                                ←
+                            </button>
+                            <button type="button" class="num btn Numpad py-3"
+                                    onclick="document.getElementById('code').value=document.getElementById('code').value + '0';">
+                                0
+                            </button>
+                            <button type="button" class="num btn Destruct_color py-3" style="font-size: 24px;"
+                                    onclick="document.getElementById('code').value= ''">CLR
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -63,14 +105,16 @@
                 <div class="row" id="">
                     <div class="col">
                         <button type="button" onclick="cancel()" class="Destruct_color p-3 w-100 h-100">
-                        취소</button>
+                            취소
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-  
+
         <!-- 모달 -->
-        <div class="modal fade" id="Payment_waiting" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="Payment_waiting" data-backdrop="static" data-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -83,12 +127,14 @@
                         <p>잠시만 기다려 주십시오</p>
                         <div class="d-flex justify-content-center">
                             <div class="spinner-border" role="status">
-                              <span class="sr-only">Loading...</span>
+                                <span class="sr-only">Loading...</span>
                             </div>
-                          </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #6D000E;">취소</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                style="background-color: #6D000E;">취소
+                        </button>
                     </div>
                 </div>
             </div>
@@ -103,8 +149,11 @@
             let What_to_do = localStorage.getItem('What_to_do');
             document.getElementById('Scan_type').innerText = PayType;
             document.getElementById('Type_of_payment').innerText = What_to_do;
+
             function modal_timer() {
-                setTimeout(function() {location.href = '/client/pay/success'}, 5000);
+                setTimeout(function () {
+                    location.href = '/client/pay/success'
+                }, 5000);
             }
         </script>
     </body>

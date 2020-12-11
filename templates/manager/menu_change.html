@@ -255,13 +255,6 @@
         <script type="text/javascript" charset="UTF-8">
             $('#upload-file-btn').change(function (e) {
                 e.preventDefault();
-                // var form = new FormData(document.getElementById('menu_discription_form'));
-                // formData.append("message", "ajax로 파일 전송하기");
-                // formData.append("file", $("#menu_discription_form")[0].formData);
-                // var file = document.getElementById('upload-file-btn').files[0];
-
-                // var formData = new FormData();
-                // formData.append('file', $('input[type=file]')[0].files[0]);
                 console.log($('input[type=file]')[0].files[0]);
                 formData = {
                     'file': $('input[type=file]')[0].files[0]
@@ -433,20 +426,6 @@
             }
 
 
-            // function dataURLtoFile(dataurl, filename) {
-
-            //                 var arr = dataurl.split(','),
-            //                     mime = arr[0].match(/:(.*?);/)[1],
-            //                     bstr = atob(arr[1]),
-            //                     n = bstr.length,
-            //                     u8arr = new Uint8Array(n);
-
-            //                 while(n--){
-            //                     u8arr[n] = bstr.charCodeAt(n);
-            //                 }
-
-            //                 return new File([u8arr], filename, {type:mime});
-            // }
             //DB에서 메뉴정보/카테고리 정보 불러오기
             var menu_data = new Array();
             var category_data = new Array();

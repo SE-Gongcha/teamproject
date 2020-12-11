@@ -7,28 +7,77 @@ import base64
 
 app = Flask(__name__)
 
-client = MongoClient('localhost', 27017)  # mongoDB의 27017 포트로 들어감
-db = client.dbGongchaTest  # 'dbGongchaTest'라는 이름의 db 생성
+# [초기 DB 생성하는 부분]
 
-# 주문번호 DB 생성하기
+# Mongo DB
+client = MongoClient('localhost', 27017)
+db = client.dbGongchaTest
+
+# 주문번호 DB
 db.orderCount.delete_many({})
 init_count = '{0:04d}'.format(1)
 db.orderCount.insert_one({'order_count': init_count})
 
-# 이미지 업로드용
+# 메뉴 DB
+db.menu.delete_many({})
+db.category.delete_many({})
+db.topping.delete_many({})
+
+db.menu.insert_one(
+    {'number': 1, 'product_number': 'abc00001', 'category': '시즌메뉴', 'name': '토피넛 밀크티+펄(L)', 'price': 5000,
+     'ice': True, 'hot': True, 'topping_number': 3, 'is_waiting': False, 'is_output_kitchen': True})
+db.menu.insert_one(
+    {'number': 2, 'product_number': 'abc00002', 'category': '시즌메뉴', 'name': '초코바른 토피넛 스무디(L)', 'price': 5500,
+     'ice': True, 'hot': True, 'topping_number': 3, 'is_waiting': False, 'is_output_kitchen': True})
+db.menu.insert_one(
+    {'number': 3, 'product_number': 'abc00003', 'category': '시즌메뉴', 'name': '다크초코 밀크티+펄(라지)', 'price': 4900,
+     'ice': True, 'hot': True, 'topping_number': 3, 'is_waiting': False, 'is_output_kitchen': True})
+db.menu.insert_one(
+    {'number': 4, 'product_number': 'abc00004', 'category': '베스트 콤비네이션', 'name': '블랙 밀크티 + 펄(라지)', 'price': 4500,
+     'ice': True, 'hot': True, 'topping_number': 3, 'is_waiting': False, 'is_output_kitchen': True})
+db.menu.insert_one(
+    {'number': 5, 'product_number': 'abc00005', 'category': '베스트 콤비네이션', 'name': '블랙 밀크티 + 펄(J)', 'price': 5800,
+     'ice': True, 'hot': True, 'topping_number': 3, 'is_waiting': False, 'is_output_kitchen': True})
+db.menu.insert_one(
+    {'number': 6, 'product_number': 'abc00006', 'category': '베스트 콤비네이션', 'name': '타로 밀크티 + 펄(점보)', 'price': 4500,
+     'ice': True, 'hot': True, 'topping_number': 3, 'is_waiting': False, 'is_output_kitchen': True})
+db.menu.insert_one(
+    {'number': 7, 'product_number': 'abc00007', 'category': '베스트 콤비네이션', 'name': '타로 밀크티 + 펄(라지)', 'price': 5800,
+     'ice': True, 'hot': True, 'topping_number': 3, 'is_waiting': False, 'is_output_kitchen': True})
+db.menu.insert_one(
+    {'number': 8, 'product_number': 'abc00008', 'category': '베스트 콤비네이션', 'name': '제주 그린 밀크티+ 펄(라지', 'price': 4900,
+     'ice': True, 'hot': True, 'topping_number': 3, 'is_waiting': False, 'is_output_kitchen': True})
+db.menu.insert_one(
+    {'number': 9, 'product_number': 'abc00009', 'category': '베스트 콤비네이션', 'name': '우롱티+ 밀크폼(라지)', 'price': 3700,
+     'ice': True, 'hot': True, 'topping_number': 3, 'is_waiting': False, 'is_output_kitchen': True})
+db.menu.insert_one(
+    {'number': 10, 'product_number': 'abc000010', 'category': '베스트 콤비네이션', 'name': '우롱티+ 밀크폼(점보)', 'price': 4900,
+     'ice': True, 'hot': True, 'topping_number': 3, 'is_waiting': False, 'is_output_kitchen': True})
+
+db.category.insert_one({'category': '시즌메뉴'})
+db.category.insert_one({'category': '베스트 콤비네이션'})
+
+db.topping.insert_one({'is_output_kitchen': True, 'is_waiting': False, 'price': 500, 'topping_name': '펄'})
+db.topping.insert_one({'is_output_kitchen': True, 'is_waiting': False, 'price': 500, 'topping_name': '밀크폼'})
+db.topping.insert_one({'is_output_kitchen': True, 'is_waiting': False, 'price': 500, 'topping_name': '코코넛'})
+db.topping.insert_one({'is_output_kitchen': True, 'is_waiting': False, 'price': 500, 'topping_name': '알로에'})
+db.topping.insert_one({'is_output_kitchen': True, 'is_waiting': False, 'price': 500, 'topping_name': '화이트펄'})
+db.topping.insert_one({'is_output_kitchen': True, 'is_waiting': False, 'price': 500, 'topping_name': '치즈펄'})
+
+# 이미지 업로드
 UPLOAD_FOLDER = './img'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = os.urandom(24)
 
 
-# HTML을 주는 부분
+# [HTML 주는 부분]
+
 @app.route('/')
 def home():
     return render_template('client/main.html')
 
 
-# Client View HTML
 @app.route('/client/main')
 def main():
     return render_template('client/main.html')
@@ -139,7 +188,6 @@ def print_order():
     return render_template('client/print_order.html')
 
 
-# Manager View HTML
 @app.route('/manager/login')
 def login():
     return render_template('manager/login.html')
@@ -165,13 +213,12 @@ def payment_result():
     return render_template('manager/payment_result.html')
 
 
-# Kitchen View HTML
 @app.route('/kitchen')
 def kitchen_display():
     return render_template('kitchen/kitchen_display.html')
 
 
-## API 역할을 하는 부분
+# [API 역할을 하는 부분]
 
 # 메뉴 수정 페이지
 @app.route('/manager/menu/change', methods=['GET'])
@@ -202,24 +249,11 @@ def parse(string):
     return d.get(string, string)
 
 
-##메뉴 CRUD 함수
-
-# def allowed_file(filename):
-#     return '.' in filename and \
-#            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
+# 메뉴 CRUD 함수
 # 메뉴 생성
 @app.route('/add_menu', methods=['POST'])
 def add_menu():
     file = request.files['file']
-
-    # if 'file' not in request.files:
-    #     flash('No file part')
-    #     return redirect(request.url)
-    # if file.filename == '':
-    #     flash('No selected file')
-    #     return redirect(request.url)
 
     category_receive = request.form['category_give']
     menu_receive = request.form['menu_give']
@@ -334,8 +368,7 @@ def delete_category():
     return render_template('manager/menu_change.html')
 
 
-## 토핑 관련 함수
-
+# 토핑 관련 함수
 # 토핑 생성
 @app.route('/add_topping', methods=['POST'])
 def add_topping():
@@ -392,18 +425,8 @@ def update_topping():
 def delete_topping():
     name_receive = request.form['name_give']
 
-    # db.menu.delete_one({'category': category_receive, 'name': menum_receive, 'price': price_receive} )
     db.topping.delete_one({'topping_name': name_receive})
     return render_template('manager/menu_change.html')
-
-
-# 사진 업로드
-# @app.route('/uploadajax', methods = ['POST'])
-# def upload_file():
-#     isthisFile=request.files.get('file')
-#     print(isthisFile)
-#     print(isthisFile.filename)
-#     isthisFile.save(secure_filename("./"+isthisFile.filename))
 
 
 # 포인트 적립
@@ -414,145 +437,79 @@ def save_points():
     return render_template('client/stamp_manual.html')
 
 
-##################################################################################################
+# 주문 정보 처리
+@app.route('/order_db', methods=['GET', 'POST'])
+def make_order():
+    if request.method == 'POST':
+        order_count = db.orderCount.find_one({}, {'_id': 0})
+        number = order_count['order_count']
 
+        transaction_date = time.strftime("%Y-%m-%d-%H:%M")
+        date_split = transaction_date.split('-')
+        date_list = date_split[:3]
+        date_list.append(number)
+        receipt_number = ''.join(date_list)
 
-@app.route('/order_db', methods=['POST'])
-# 주문 정보 저장하기
-def post_order_db():
-    # 주문 번호
-    order_count = db.orderCount.find_one({}, {'_id': 0})
-    number = order_count['order_count']
+        order_state = False
 
-    # 영수증 번호
-    transaction_date = time.strftime("%Y-%m-%d-%H:%M")
-    date_split = transaction_date.split('-')
-    date_list = date_split[:3]
-    date_list.append(number)
-    receipt_number = ''.join(date_list)
+        product = request.form['product_give']
+        amount = int(request.form['amount_give'])
+        per_price = int(request.form['pprice_give'])
+        opt = request.form['options_give']
+        options = [x.strip() for x in opt.split(',')]
+        products = [{'product': product, 'amount': amount, 'per_price': per_price, 'options': options}]
 
-    # 주문 제품
-    product = request.form['product_give']  # [[product, amount, per_price, *options], ...]
-    amount = int(request.form['amount_give'])
-    per_price = int(request.form['pprice_give'])
-    opt = request.form['options_give']
-    options = [x.strip() for x in opt.split(',')]
-    products = [{'product': product, 'amount': amount, 'per_price': per_price, 'options': options}]
+        total_price = int(request.form['tprice_give'])
+        discount_price = int(request.form['dprice_give'])
+        real_price = int(request.form['rprice_give'])
 
-    # 총 주문 가격
-    total_price = int(request.form['tprice_give'])
+        order = {'number': number, 'receipt_number': receipt_number, 'order_state': order_state,
+                 'transaction_date': transaction_date, 'products': products, 'total_price': total_price,
+                 'discount_price': discount_price, 'real_price': real_price}
 
-    order = {'number': number, 'receipt_number': receipt_number, 'products': products,
-             'total_price': total_price}
-
-    db.order.insert_one(order)
-
-    return jsonify({'result': 'success'})
-
-
-@app.route('/pay_db', methods=['POST'])
-# 결제 정보 저장하기
-def pay_order():
-    # 주문 번호
-    order_count = db.orderCount.find_one({}, {'_id': 0})
-    number = order_count['order_count']
-
-    # 주문 시간 & 영수증 번호
-    transaction_date = time.strftime("%Y-%m-%d-%H:%M")
-    date_split = transaction_date.split('-')
-    date_list = date_split[:3]
-    date_list.append(number)
-    receipt_number = ''.join(date_list)
-
-    discount_price = int(request.form['discount_give'])  # 할인 금액
-    real_price = int(request.form['real_give'])  # 결제 금액 (메뉴 가격 - 할인 금액)
-
-    pay = {'receipt_number': receipt_number, 'transaction_date': transaction_date, 'discount_price': discount_price,
-           'real_price': real_price}
-
-    db.pay.insert_one(pay)
-
-    return jsonify({'result': 'success'})
-
-
-@app.route('/finish', methods=['GET'])
-def finish_order():
-    # 1. orderCount DB에서 order_number 값 조회해오기(Read)
-    order_count = db.orderCount.find_one({}, {'_id': 0})
-    number = order_count['order_count']
-
-    # 2. orderCount DB 1만큼 업데이트 해주기
-    count = int(number) + 1
-    count_update = '{0:04d}'.format(count)
-    db.orderCount.update_one({}, {'$set': {'order_count': count_update}})
-
-    # 3. payment DB 생성하기
-    make_payments_db()
-
-    return jsonify({'result': 'success', 'order_number': number})
-
-
-def make_payments_db():  # order DB + pay DB = payments DB 만들기
-    db.payments.delete_many({})
-
-    # 1. order DB에서 주문 정보 가져오기
-    order_db = list(db.order.find({}, {'_id': 0}))
-
-    for order in order_db:
-        number = order['number']
-        receipt_number = order['receipt_number']
-        order_state = False  # 주문 처리 상태
-        transaction_date = 0
-        products = order['products']
-        total_price = order['total_price']
-        discount_price = 0
-        real_price = 0
-
-        payments = {'number': number, 'receipt_number': receipt_number, 'order_state': order_state,
-                    'transaction_date': transaction_date, 'products': products, 'total_price': total_price,
-                    'discount_price': discount_price, 'real_price': real_price}
-        db.payments.insert_one(payments)
-
-    # 2. pay DB에서 결제 정보 가져오기
-    pay_db = list(db.pay.find({}, {'_id': 0}))
-
-    for pay in pay_db:
-        receipt_number = pay['receipt_number']
-        transaction_date = pay['transaction_date']
-        discount_price = pay['discount_price']
-        real_price = pay['real_price']
-
-        db.payments.update_one({'receipt_number': receipt_number}, {
-            '$set': {'transaction_date': transaction_date, 'discount_price': discount_price, 'real_price': real_price}})
-
-
-@app.route('/payment_db', methods=['POST'])
-def post_payments_db():
-    receipt_number = request.form['receipt_give']
-    db.payments.delete_one({'receipt_number': receipt_number})
-
-    return jsonify({'result': 'success'})
-
-
-@app.route('/payment_db', methods=['GET'])
-def get_payments_db():
-    result = list(db.payments.find({}, {'_id': 0, 'order_state': 0}))
-
-    return jsonify({'result': 'success', 'payment_data': result})
-
-
-@app.route('/kitchen_db', methods=['GET', 'POST'])
-def check_order():
-    if request.method == 'POST':  # 서빙이 끝난 주문의 처리 정보 수정하기
-        receipt_receive = request.form['receipt_give']
-        db.payments.update_one({'receipt_number': receipt_receive}, {'$set': {'order_state': True}})
+        db.order.insert_one(order)
 
         return jsonify({'result': 'success'})
 
-    elif request.method == 'GET':  # 주방 화면에 주문 번호(number), 영수증 번호(receipt_number)와 주문정보(products) 보내주기
-        result = list(db.payments.find({'order_state': False}, {'_id': 0, 'transaction_date': 0, 'total_price': 0,
-                                                                'discount_price': 0, 'real_price': 0,
-                                                                'order_state': 0}))
+    elif request.method == 'GET':
+        order_count = db.orderCount.find_one({}, {'_id': 0})
+        number = order_count['order_count']
+
+        count = int(number) + 1
+        count_update = '{0:04d}'.format(count)
+        db.orderCount.update_one({}, {'$set': {'order_count': count_update}})
+
+        return jsonify({'result': 'success', 'order_number': number})
+
+
+# 결제 정보 처리
+@app.route('/payment_db', methods=['GET', 'POST'])
+def manange_payment():
+    if request.method == 'POST':
+        receipt_number = request.form['receipt_give']
+        db.order.delete_one({'receipt_number': receipt_number})
+
+        return jsonify({'result': 'success'})
+
+    elif request.method == 'GET':
+        result = list(db.order.find({}, {'_id': 0, 'order_state': 0}))
+
+        return jsonify({'result': 'success', 'payment_data': result})
+
+
+# 주방 정보 처리
+@app.route('/kitchen_db', methods=['GET', 'POST'])
+def check_order():
+    if request.method == 'POST':
+        receipt_receive = request.form['receipt_give']
+        db.order.update_one({'receipt_number': receipt_receive}, {'$set': {'order_state': True}})
+
+        return jsonify({'result': 'success'})
+
+    elif request.method == 'GET':
+        result = list(db.order.find({'order_state': False}, {'_id': 0, 'transaction_date': 0, 'total_price': 0,
+                                                             'discount_price': 0, 'real_price': 0,
+                                                             'order_state': 0}))
 
         return jsonify({'result': 'success', 'kitchen_data': result})
 

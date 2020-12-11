@@ -70,31 +70,33 @@
                 </table>
             </div>
         </div>
+
         <script>
             $("#datepicker")
-            .datepicker({
-                onSelect: function(dateText) {
-                    console.log("Selected date: " + dateText + "; input's current value: " + this.value);
-                    //$(this).change();
-                    updatePaymentResultDom();
-                }
-            }).on("change", function() {
+                .datepicker({
+                    onSelect: function (dateText) {
+                        console.log("Selected date: " + dateText + "; input's current value: " + this.value);
+                        //$(this).change();
+                        updatePaymentResultDom();
+                    }
+                }).on("change", function () {
                 console.log("Got change event from field");
             });
             $('#datepicker').datepicker('setDate', 'today');
 
             $("#datepicker2")
-            .datepicker({
-                onSelect: function(dateText) {
-                    console.log("Selected date: " + dateText + "; input's current value: " + this.value);
-                    //$(this).change();
-                    updatePaymentResultDom();
-                }
-            }).on("change", function() {
+                .datepicker({
+                    onSelect: function (dateText) {
+                        console.log("Selected date: " + dateText + "; input's current value: " + this.value);
+                        //$(this).change();
+                        updatePaymentResultDom();
+                    }
+                }).on("change", function () {
                 console.log("Got change event from field");
             });
             $('#datepicker2').datepicker('setDate', 'today');
-          </script>
+        </script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

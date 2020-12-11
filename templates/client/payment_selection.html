@@ -15,7 +15,7 @@
                     <div class="col" style="font-size: 64px; font-weight: bolder;">결제 수단 선택</div>
                 </div>
             </div>
-            
+
             <div class="container-* text-center" style="margin-top: 30%;">
                 <div class="row">
                     <div class="col-1"></div>
@@ -28,7 +28,9 @@
                     <div class="col-1"></div>
                     <button class="col Sel_Box_form" onclick="payment_type_set(2)">기프티콘</button>
                     <div class="col-2"></div>
-                    <button class="col Sel_Box_form" onclick="location.href = '/client/pay/credit'; localStorage.removeItem('Payment_type')">카드</button>
+                    <button class="col Sel_Box_form"
+                            onclick="location.href = '/client/pay/credit'; localStorage.removeItem('Payment_type')">카드
+                    </button>
                     <div class="col-1"></div>
                 </div>
             </div>
@@ -36,9 +38,11 @@
             <div class="container-fluid text-center" style="margin-top: 20%;">
                 <div class="row align-items-end">
                     <div class="col-4 align-self-end">
-                        <button type="button" onclick="location.href='/client/order/confirm'" name="Selction_back" id="" class="Destruct_color p-3">
-                        뒤로가기
-                        </button></div>
+                        <button type="button" onclick="location.href='/client/order/confirm'" name="Selction_back" id=""
+                                class="Destruct_color p-3">
+                            뒤로가기
+                        </button>
+                    </div>
                     <div class="col-3"></div>
                     <div class="col-4 Sel_Box_form">
                         <p style="font-size: 48px;">결제하실 금액:</p>
@@ -63,7 +67,7 @@
 
             //real_price부분에 실제 가격 넣기
             real_price = localStorage.getItem('orderSumPrice');
-            document.getElementById('Payment').innerHTML = real_price;   
+            document.getElementById('Payment').innerHTML = real_price;
         </script>
     </body>
 </html>

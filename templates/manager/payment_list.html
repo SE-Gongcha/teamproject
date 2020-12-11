@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="ko">
+<html lang="ko">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,16 +42,16 @@
                 <div class="row" style="width:100%; height:400px; overflow:auto">
                     <table id="example-table-1" width="100%" class="table table-bordered table-hover text-center">
                         <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">주문번호</th>
-                                <th scope="col">영수증번호</th>
-                                <th scope="col">거래일시</th>
-                                <th scope="col">품목</th>
-                                <th scope="col">주문합계</th>
-                            </tr>
-                            </thead>
-                            <tbody id="payment_tbody">
-                            </tbody>
+                        <tr>
+                            <th scope="col">주문번호</th>
+                            <th scope="col">영수증번호</th>
+                            <th scope="col">거래일시</th>
+                            <th scope="col">품목</th>
+                            <th scope="col">주문합계</th>
+                        </tr>
+                        </thead>
+                        <tbody id="payment_tbody">
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -60,43 +60,52 @@
             <div class="col-6">
                 <h6>상세 주문 내역</h6>
                 <div class="jumbotron">
-                    <div class="d-flex justify-content-between"><strong>주문번호</strong><span id="input_number"></span></div>
-                    <div class="d-flex justify-content-between"><strong>영수증번호</strong><span id="input_receipt_number"></span></div>
-                    <div class="d-flex justify-content-between"><strong>거래일시</strong><span id="input_transaction_date"></span></div>
+                    <div class="d-flex justify-content-between"><strong>주문번호</strong><span id="input_number"></span>
+                    </div>
+                    <div class="d-flex justify-content-between"><strong>영수증번호</strong><span
+                            id="input_receipt_number"></span></div>
+                    <div class="d-flex justify-content-between"><strong>거래일시</strong><span
+                            id="input_transaction_date"></span></div>
                     <div class="payment_list_discription">
                         <strong>상품명</strong>
                         <div id="input_products">
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between"><strong>주문합계</strong><span id="input_total_price"></span></div>
-                    <div class="d-flex justify-content-between"><strong>할인금액</strong><span id="input_discount_price"></span></div>
-                    <div class="d-flex justify-content-between"><strong>받은금액</strong><span id="input_real_price"></span></div>
+                    <div class="d-flex justify-content-between"><strong>주문합계</strong><span
+                            id="input_total_price"></span></div>
+                    <div class="d-flex justify-content-between"><strong>할인금액</strong><span
+                            id="input_discount_price"></span></div>
+                    <div class="d-flex justify-content-between"><strong>받은금액</strong><span id="input_real_price"></span>
+                    </div>
                 </div>
                 <div class="buttons float-right payment_buttons">
                     <button type="button" class="btn">영수증재발행</button>
-                    <button type="button" data-toggle="modal" data-target="#Modal_payment_remove" class="btn" id="payment_cancel">결제취소</button>
+                    <button type="button" data-toggle="modal" data-target="#Modal_payment_remove" class="btn"
+                            id="payment_cancel">결제취소
+                    </button>
                 </div>
             </div>
 
         </div>
 
         <!--모달창-->
-        <div class="modal fade" id="Modal_payment_remove" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modal_payment_remove" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="ModalLabel">결제취소 안내</h5>
-                  <button type="button" class="close" id="close_btn" data-dismiss="modal" aria-label="close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">결제취소 안내</h5>
+                        <button type="button" class="close" id="close_btn" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        신용카드를 투입해주세요.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal" id="ok_btn">OK</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                  신용카드를 투입해주세요.
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn" data-dismiss="modal" id="ok_btn">OK</button>
-                </div>
-              </div>
             </div>
         </div>
 
@@ -104,13 +113,13 @@
         <script>
 
             $("#datepicker")
-            .datepicker({
-                onSelect: function(dateText) {
-                    console.log("Selected date: " + dateText + "; input's current value: " + this.value);
-                    //$(this).change();
-                    updatePaymentDom();
-                }
-            }).on("change", function() {
+                .datepicker({
+                    onSelect: function (dateText) {
+                        console.log("Selected date: " + dateText + "; input's current value: " + this.value);
+                        //$(this).change();
+                        updatePaymentDom();
+                    }
+                }).on("change", function () {
                 console.log("Got change event from field");
             });
             $('#datepicker').datepicker('setDate', 'today');
@@ -124,4 +133,4 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     </body>
-    </html>
+</html>

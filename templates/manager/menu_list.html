@@ -49,18 +49,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script charset="UTF-8">
-  //DB에서 메뉴정보/카테고리 정보 불러오기
-  var menu_data = new Array();
-          var category_data = new Array();
-          const all_menu = JSON.parse('{{ all_menu |default("")| tojson }}');
-          for (var property in all_menu) {
-                                          menu_data.push(all_menu[property]);             
-                                        }
+            //DB에서 메뉴정보/카테고리 정보 불러오기
+            var menu_data = new Array();
+            var category_data = new Array();
+            const all_menu = JSON.parse('{{ all_menu |default("")| tojson }}');
+            for (var property in all_menu) {
+                menu_data.push(all_menu[property]);
+            }
             console.log(menu_data);
 
-
-
-          
         </script>
 
         <script src="{{url_for('static', filename='js/menu_list.js')}}"></script>

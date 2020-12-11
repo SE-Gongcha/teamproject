@@ -6,11 +6,11 @@ function formatMoney(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function updateDom(menu_data){
+function updateDom(menu_data) {
     //clear main div
     tbodyEl.innerHTML = '';
 
-    menu_data.forEach(item=> {
+    menu_data.forEach(item => {
         const element = document.createElement('tr');
         element.innerHTML =
             `<th scope="row" style="text-align:center">${item.number}</th>

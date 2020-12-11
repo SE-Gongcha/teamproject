@@ -5,14 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>영수증 발급</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{url_for('static', filename='css/Payment.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/Payment.css') }}">
     </head>
 
     <body>
         <div style="font-size:64px; font-weight: bold; text-align:center; margin-top: 10%;">주문 완료</div>
         <div class="card w-75 h-25 mx-auto" style="margin-top: 10%;">
             <div class="card-body">
-                <p class="card-title" style="color: #C30E2E; border: #C30E2E; font-size: 60px; font-weight:bold; text-align: center;">
+                <p class="card-title"
+                   style="color: #C30E2E; border: #C30E2E; font-size: 60px; font-weight:bold; text-align: center;">
                     주문번호<br><br><span id="Order_no" style="font-size: 100px;">1</span>
                 </p>
             </div>
@@ -29,13 +30,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="{{url_for('static', filename='js/Payment.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/Payment.js') }}"></script>
         <script>
 
             document.addEventListener("DOMContentLoaded", () => {
-                postPayData();
+                postOrderData();
                 getOrderNumber();
-                setTimeout(function() {location.href = '/client/main'}, 5000);
+                setTimeout(function () {
+                    location.href = '/client/main'
+                }, 5000);
                 localStorage.clear();
                 return;
             });
@@ -43,7 +46,7 @@
             function getOrderNumber() {
                 $.ajax({
                     type: "GET",
-                    url: "/finish",
+                    url: "/order_db",
                     data: {},
                     success: function (response) {
                         if (response["result"] == "success") {
@@ -57,7 +60,11 @@
                 })
             }
 
-            function postPayData() {
+            function postOrderData() {
+                let product = localStorage.getItem('orderName');
+                let amount = localStorage.getItem('orderAmount');
+                let per_price = localStorage.getItem('orderPrice');
+                let options = localStorage.getItem('orderOpt');
                 let total_price = localStorage.getItem('totalPrice');
                 let discount_price = localStorage.getItem('DiscountPrice');
                 if (discount_price == null) {
@@ -67,8 +74,16 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "/pay_db",
-                    data: {discount_give: discount_price, real_give: real_price},
+                    url: "/order_db",
+                    data: {
+                        product_give: product,
+                        amount_give: amount,
+                        pprice_give: per_price,
+                        options_give: options,
+                        tprice_give: total_price,
+                        dprice_give: discount_price,
+                        rprice_give: real_price
+                    },
                     success: function (response) {
                         if (response["result"] == "success") {
                         } else {

@@ -10,16 +10,16 @@ function payment_type_set(_type) {
     localstorage.setItem('Payment_type', lType_of_payment[_type]);
     localstorage.setItem('What_to_do', lWhat_to_do[_type]);
     localstorage.setItem('Pic_src', lPic_src[_type]);
-    if(_type == 0 || _type == 1) {
+    if (_type == 0 || _type == 1) {
         localstorage.setItem('Is_Discount', '1');
     }
     return window.location.href = '/client/pay/scan';
 }
 
 function cancel() {
-    if(localstorage.getItem('Is_Discount')) {
+    if (localstorage.getItem('Is_Discount')) {
         let paymenttype = localstorage.getItem('Payment_type')
-        if(paymenttype == '공차 쿠폰' || paymenttype == '통신사 할인') {
+        if (paymenttype == '공차 쿠폰' || paymenttype == '통신사 할인') {
             localstorage.removeItem('Is_Discount');
         }
     }
@@ -29,7 +29,7 @@ function cancel() {
 function Err_display() {
     var Errcode = localstorage.getItem('Err_code')
     var Err_type = '사유: '
-    switch(Errcode) {
+    switch (Errcode) {
         case '1':
             Err_type += '결제 시간 초과';
             break;
